@@ -1,0 +1,16 @@
+//RAS
+//  ___FILENAME___
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
+//
+
+import Foundation
+
+protocol ___VARIABLE_ModuleName___ServiceType {
+
+}
+class ___VARIABLE_ModuleName___Service: ___VARIABLE_ModuleName___ServiceType {
+
+}
