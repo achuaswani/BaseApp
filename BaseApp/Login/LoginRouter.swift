@@ -17,16 +17,19 @@ class LoginRouter: LoginRouterToPresenterType {
     // MARK: Properties
     typealias Presenter = LoginPresenter
     typealias View =  LoginView
+    typealias Style  = LoginStyle
     typealias Router = LoginRouter
     typealias Interactor = LoginInteractor
 
     static func createModule() -> LoginView {
         let viewController = View()
+        let style = Style()
         let presenter = Presenter()
         let router = Router()
         let interactor = Interactor()
 
         viewController.presenter =  presenter
+        viewController.style = style
 
         presenter.view = viewController
         presenter.router = router

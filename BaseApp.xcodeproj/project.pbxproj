@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		17DE758EE5898B0810C9D553 /* Pods_BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAF9B6157EE5CD2C58C58D1 /* Pods_BaseApp.framework */; };
 		53979A474D112E6BED555B44 /* Pods_BaseApp_BaseAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7BE97BC778BF5B403509BB /* Pods_BaseApp_BaseAppUITests.framework */; };
+		5BBCF222241C8F3A002BD0C0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21B241C8F3A002BD0C0 /* SignupView.swift */; };
+		5BBCF223241C8F3A002BD0C0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21C241C8F3A002BD0C0 /* SignupRouter.swift */; };
+		5BBCF224241C8F3A002BD0C0 /* SignupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21D241C8F3A002BD0C0 /* SignupStyle.swift */; };
+		5BBCF225241C8F3A002BD0C0 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21E241C8F3A002BD0C0 /* SignupService.swift */; };
+		5BBCF226241C8F3A002BD0C0 /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21F241C8F3A002BD0C0 /* SignupInteractor.swift */; };
+		5BBCF227241C8F3A002BD0C0 /* SignupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF220241C8F3A002BD0C0 /* SignupEntity.swift */; };
+		5BBCF228241C8F3A002BD0C0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF221241C8F3A002BD0C0 /* SignupPresenter.swift */; };
 		83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9823FDE8C30055EFE9 /* DashboardView.swift */; };
 		83074AA023FDE8C30055EFE9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9923FDE8C30055EFE9 /* DashboardRouter.swift */; };
 		83074AA123FDE8C30055EFE9 /* DashboardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9A23FDE8C30055EFE9 /* DashboardStyle.swift */; };
@@ -57,6 +64,13 @@
 /* Begin PBXFileReference section */
 		1A8296779BA80A41A9D747DE /* Pods-BaseAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BaseAppTests/Pods-BaseAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CF8657894D73C33DCBC3819 /* Pods-BaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseApp.debug.xcconfig"; path = "Target Support Files/Pods-BaseApp/Pods-BaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5BBCF21B241C8F3A002BD0C0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		5BBCF21C241C8F3A002BD0C0 /* SignupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
+		5BBCF21D241C8F3A002BD0C0 /* SignupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStyle.swift; sourceTree = "<group>"; };
+		5BBCF21E241C8F3A002BD0C0 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		5BBCF21F241C8F3A002BD0C0 /* SignupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		5BBCF220241C8F3A002BD0C0 /* SignupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEntity.swift; sourceTree = "<group>"; };
+		5BBCF221241C8F3A002BD0C0 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		83074A9823FDE8C30055EFE9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		83074A9923FDE8C30055EFE9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		83074A9A23FDE8C30055EFE9 /* DashboardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardStyle.swift; sourceTree = "<group>"; };
@@ -135,6 +149,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5BBCF21A241C8F1C002BD0C0 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				5BBCF21B241C8F3A002BD0C0 /* SignupView.swift */,
+				5BBCF21C241C8F3A002BD0C0 /* SignupRouter.swift */,
+				5BBCF21D241C8F3A002BD0C0 /* SignupStyle.swift */,
+				5BBCF21E241C8F3A002BD0C0 /* SignupService.swift */,
+				5BBCF21F241C8F3A002BD0C0 /* SignupInteractor.swift */,
+				5BBCF220241C8F3A002BD0C0 /* SignupEntity.swift */,
+				5BBCF221241C8F3A002BD0C0 /* SignupPresenter.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
 		83074A9723FDE8AD0055EFE9 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +216,7 @@
 		83AA8FB6238381130061782A /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				5BBCF21A241C8F1C002BD0C0 /* Signup */,
 				83074A9723FDE8AD0055EFE9 /* Dashboard */,
 				8390CCB523DA4D4500E0DBBD /* Login */,
 				83AA8FE52383D00E0061782A /* Constants */,
@@ -195,7 +224,6 @@
 				83AA8FB9238381130061782A /* RootViewController.swift */,
 				83AA8FBE238381150061782A /* Assets.xcassets */,
 				83AA8FC0238381150061782A /* LaunchScreen.storyboard */,
-				839F9BDE2384B518000A9267 /* GoogleService-Info.plist */,
 				83AA8FC3238381150061782A /* Info.plist */,
 			);
 			path = BaseApp;
@@ -222,6 +250,7 @@
 		83AA8FE52383D00E0061782A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				839F9BDE2384B518000A9267 /* GoogleService-Info.plist */,
 				83AA8FE62383D01D0061782A /* Constants.swift */,
 				839F9BE02384C235000A9267 /* BaseStyle.swift */,
 				8390CCC423DB7E8000E0DBBD /* Util.swift */,
@@ -500,25 +529,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BBCF222241C8F3A002BD0C0 /* SignupView.swift in Sources */,
 				8390CCE223E0C46400E0DBBD /* LoginPresenter.swift in Sources */,
+				5BBCF227241C8F3A002BD0C0 /* SignupEntity.swift in Sources */,
 				8390CCDC23E0C46400E0DBBD /* LoginView.swift in Sources */,
 				83AA8FBA238381130061782A /* RootViewController.swift in Sources */,
 				83074AA724006B2B0055EFE9 /* InputField.swift in Sources */,
 				83074AA023FDE8C30055EFE9 /* DashboardRouter.swift in Sources */,
 				83AA8FB8238381130061782A /* AppDelegate.swift in Sources */,
 				83AA8FE72383D01D0061782A /* Constants.swift in Sources */,
+				5BBCF224241C8F3A002BD0C0 /* SignupStyle.swift in Sources */,
 				8390CCDF23E0C46400E0DBBD /* LoginService.swift in Sources */,
 				8390CCC523DB7E8000E0DBBD /* Util.swift in Sources */,
+				5BBCF223241C8F3A002BD0C0 /* SignupRouter.swift in Sources */,
 				83074AA523FDE8C30055EFE9 /* DashboardPresenter.swift in Sources */,
 				8390CCDE23E0C46400E0DBBD /* LoginStyle.swift in Sources */,
 				8390CCDD23E0C46400E0DBBD /* LoginRouter.swift in Sources */,
 				83074AA323FDE8C30055EFE9 /* DashboardInteractor.swift in Sources */,
+				5BBCF226241C8F3A002BD0C0 /* SignupInteractor.swift in Sources */,
 				83074AA223FDE8C30055EFE9 /* DashboardService.swift in Sources */,
 				8390CCE023E0C46400E0DBBD /* LoginInteractor.swift in Sources */,
 				83074AA423FDE8C30055EFE9 /* DashboardEntity.swift in Sources */,
 				83074AA123FDE8C30055EFE9 /* DashboardStyle.swift in Sources */,
 				839F9BE12384C235000A9267 /* BaseStyle.swift in Sources */,
+				5BBCF225241C8F3A002BD0C0 /* SignupService.swift in Sources */,
 				83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */,
+				5BBCF228241C8F3A002BD0C0 /* SignupPresenter.swift in Sources */,
 				8390CCE123E0C46400E0DBBD /* LoginEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
