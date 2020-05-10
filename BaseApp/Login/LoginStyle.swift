@@ -14,6 +14,7 @@ protocol LoginStyleType {
     func style(input: UITextField)
     func style(label: UILabel)
     func style(button: UIButton)
+    func style(buttonLink: UIButton)
 }
 class LoginStyle: LoginStyleType {
     var backgroundColor: UIColor {
@@ -36,5 +37,12 @@ class LoginStyle: LoginStyleType {
     
     func style(button: UIButton) {
         button.backgroundColor = .black
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+    }
+    
+    func style(buttonLink: UIButton) {
+        buttonLink.backgroundColor = .clear
+        buttonLink.setTitleColor(UIColor.blue, for: .normal)
     }
 }

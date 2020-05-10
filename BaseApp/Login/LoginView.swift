@@ -26,7 +26,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     lazy var loginButton: UIButton = UIButton(frame: .zero)
     lazy var signupButton: UIButton = UIButton(frame: .zero)
     
-    var imageview = UIImageView()
+    var headerImageView = UIImageView()
 
     // MARK: Lifecycle
 
@@ -49,40 +49,45 @@ class LoginView: UIViewController, UITextFieldDelegate {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageview.image =  UIImage(named: "img")!
-        imageview.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(imageview)
+        headerImageView.image =  UIImage(named: "login")!
+        headerImageView.translatesAutoresizingMaskIntoConstraints = false
+        headerImageView.accessibilityIdentifier = "headerImageView"
+        scrollView.addSubview(headerImageView)
         
-        headerLabel.text = "Login"
+        headerLabel.text = "login.button.header.title".localized()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.accessibilityIdentifier = "headerLabel"
         style.style(label: headerLabel)
         scrollView.addSubview(headerLabel)
 
-        emailTextField.placeholder = "Email Id"
+        emailTextField.placeholder = "login.button.emailid.title".localized()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.isSecureTextEntry = false
         emailTextField.delegate = self
+        emailTextField.accessibilityIdentifier = "emailTextField"
         style.style(input: emailTextField)
         scrollView.addSubview(emailTextField)
 
-        passwordField.placeholder = "Password"
+        passwordField.placeholder = "login.button.password.title".localized()
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.isSecureTextEntry = true
         passwordField.delegate = self
+        passwordField.accessibilityIdentifier = "passwordField"
         style.style(input: passwordField)
         scrollView.addSubview(passwordField)
 
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("login.button.signin.title".localized(), for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.accessibilityIdentifier = "loginButton"
         style.style(button: loginButton)
         scrollView.addSubview(loginButton)
         
         signupButton.translatesAutoresizingMaskIntoConstraints = false
-        signupButton.setTitle("Signup", for: .normal)
+        signupButton.setTitle("login.button.signup.title".localized(), for: .normal)
         signupButton.addTarget(self, action: #selector(signupButtonTapped), for: .touchUpInside)
         signupButton.accessibilityIdentifier = "signupButton"
+        style.style(buttonLink: signupButton)
         scrollView.addSubview(signupButton)
         
         addConstraints()
@@ -98,25 +103,25 @@ class LoginView: UIViewController, UITextFieldDelegate {
             scrollView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
-            imageview.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
-            imageview.heightAnchor.constraint(equalToConstant: 300),
-            imageview.widthAnchor.constraint(equalTo: margins.widthAnchor),
-            imageview.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
+            headerImageView.heightAnchor.constraint(equalToConstant: 300),
+            headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
-            headerLabel.leadingAnchor.constraint(equalTo: imageview.leadingAnchor),
-            headerLabel.trailingAnchor.constraint(equalTo: imageview.trailingAnchor),
-            headerLabel.topAnchor.constraint(equalTo: imageview.bottomAnchor, constant: generalSpacing),
+            headerLabel.leadingAnchor.constraint(equalTo: headerImageView.leadingAnchor),
+            headerLabel.trailingAnchor.constraint(equalTo: headerImageView.trailingAnchor),
+            headerLabel.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: generalSpacing),
             
             emailTextField.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: generalSpacing),
             emailTextField.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
             
-            passwordField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: generalSpacing),
+            passwordField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
             passwordField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             passwordField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
             loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: generalSpacing),
-            loginButton.leadingAnchor.constraint(equalTo: imageview.leadingAnchor),
+            loginButton.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor),
             
             signupButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: generalSpacing),

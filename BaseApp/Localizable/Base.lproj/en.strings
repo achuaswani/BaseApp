@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  BaseApp
+
+  Created by Aswani G on 5/7/20.
+  Copyright © 2020 RAS. All rights reserved.
+*/
+//Create localizable without storyboards https://medium.com/@Yerazhas/string-localization-in-swift-without-storyboards-e243e5a64f58
+//Login Screen
+"login.button.header.title" = "Login to access your account";
+"login.button.signin.title" = "Sign In";
+"login.button.signup.title" = "Signup";
+"login.button.password.title" = "Enter password";
+"login.button.emailid.title" = "Enter email id";

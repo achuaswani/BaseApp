@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		17DE758EE5898B0810C9D553 /* Pods_BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAF9B6157EE5CD2C58C58D1 /* Pods_BaseApp.framework */; };
 		53979A474D112E6BED555B44 /* Pods_BaseApp_BaseAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7BE97BC778BF5B403509BB /* Pods_BaseApp_BaseAppUITests.framework */; };
+		5B72FF2C24645ED2002FF7F1 /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B72FF2A24645ED2002FF7F1 /* en.strings */; };
+		5B72FF3624647187002FF7F1 /* ml.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B72FF3524647187002FF7F1 /* ml.strings */; };
+		5B72FF382464727B002FF7F1 /* LocalizableLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */; };
+		5B72FF3A24647553002FF7F1 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF3924647553002FF7F1 /* LanguageManager.swift */; };
 		5BBCF222241C8F3A002BD0C0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21B241C8F3A002BD0C0 /* SignupView.swift */; };
 		5BBCF223241C8F3A002BD0C0 /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21C241C8F3A002BD0C0 /* SignupRouter.swift */; };
 		5BBCF224241C8F3A002BD0C0 /* SignupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21D241C8F3A002BD0C0 /* SignupStyle.swift */; };
@@ -64,6 +68,10 @@
 /* Begin PBXFileReference section */
 		1A8296779BA80A41A9D747DE /* Pods-BaseAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BaseAppTests/Pods-BaseAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CF8657894D73C33DCBC3819 /* Pods-BaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseApp.debug.xcconfig"; path = "Target Support Files/Pods-BaseApp/Pods-BaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5B72FF2B24645ED2002FF7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/en.strings; sourceTree = "<group>"; };
+		5B72FF3524647187002FF7F1 /* ml.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ml.strings; sourceTree = "<group>"; };
+		5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableLanguage.swift; sourceTree = "<group>"; };
+		5B72FF3924647553002FF7F1 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		5BBCF21B241C8F3A002BD0C0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		5BBCF21C241C8F3A002BD0C0 /* SignupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
 		5BBCF21D241C8F3A002BD0C0 /* SignupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStyle.swift; sourceTree = "<group>"; };
@@ -149,6 +157,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B72FF3424647147002FF7F1 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				5B72FF2A24645ED2002FF7F1 /* en.strings */,
+				5B72FF3524647187002FF7F1 /* ml.strings */,
+				5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */,
+				5B72FF3924647553002FF7F1 /* LanguageManager.swift */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		5BBCF21A241C8F1C002BD0C0 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +244,7 @@
 				83AA8FBE238381150061782A /* Assets.xcassets */,
 				83AA8FC0238381150061782A /* LaunchScreen.storyboard */,
 				83AA8FC3238381150061782A /* Info.plist */,
+				5B72FF3424647147002FF7F1 /* Localizable */,
 			);
 			path = BaseApp;
 			sourceTree = "<group>";
@@ -383,6 +403,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				83AA8FC2238381150061782A /* LaunchScreen.storyboard in Resources */,
+				5B72FF2C24645ED2002FF7F1 /* en.strings in Resources */,
+				5B72FF3624647187002FF7F1 /* ml.strings in Resources */,
 				83AA8FBF238381150061782A /* Assets.xcassets in Resources */,
 				839F9BDF2384B518000A9267 /* GoogleService-Info.plist in Resources */,
 			);
@@ -530,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBCF222241C8F3A002BD0C0 /* SignupView.swift in Sources */,
+				5B72FF3A24647553002FF7F1 /* LanguageManager.swift in Sources */,
 				8390CCE223E0C46400E0DBBD /* LoginPresenter.swift in Sources */,
 				5BBCF227241C8F3A002BD0C0 /* SignupEntity.swift in Sources */,
 				8390CCDC23E0C46400E0DBBD /* LoginView.swift in Sources */,
@@ -555,6 +578,7 @@
 				5BBCF225241C8F3A002BD0C0 /* SignupService.swift in Sources */,
 				83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */,
 				5BBCF228241C8F3A002BD0C0 /* SignupPresenter.swift in Sources */,
+				5B72FF382464727B002FF7F1 /* LocalizableLanguage.swift in Sources */,
 				8390CCE123E0C46400E0DBBD /* LoginEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +615,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5B72FF2A24645ED2002FF7F1 /* en.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B72FF2B24645ED2002FF7F1 /* Base */,
+			);
+			name = en.strings;
+			sourceTree = "<group>";
+		};
 		83AA8FC0238381150061782A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -606,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -667,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
