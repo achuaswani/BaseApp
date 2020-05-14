@@ -13,5 +13,5 @@ protocol ___VARIABLE_ModuleName___InteractorToPresenterType {
 }
 class ___VARIABLE_ModuleName___Interactor: ___VARIABLE_ModuleName___InteractorToPresenterType {
     var presenter: ___VARIABLE_ModuleName___Presenter?
-
+    var service:  ___VARIABLE_ModuleName___Service?
 }

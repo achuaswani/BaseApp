@@ -7,8 +7,19 @@
 */
 //Create localizable without storyboards https://medium.com/@Yerazhas/string-localization-in-swift-without-storyboards-e243e5a64f58
 //Login Screen
-"login.button.header.title" = "Login to access your account";
-"login.button.signin.title" = "Sign In";
-"login.button.signup.title" = "Signup";
-"login.button.password.title" = "Enter password";
-"login.button.emailid.title" = "Enter email id";
+"login.label.header.title" = "Login to access your account";
+"login.textfield.password.title" = "Enter password";
+"login.textfield.emailid.title" = "Enter email id";
+"login.label.generic.error.message" = "All fields are mandatory.";
+"login.label.email.validation.error.message" = "Enter valid email.";
+"login.label.password.validation.error.message" = "Enter valid password.";
+"login.label.password.min.error.message" = "Password should be atleast 8 characters";
+"login.button.login.title" = "Login";
+"login.button.register.title" = "Register";
+
+//register
+"register.label.header.title" = "Register new account";
+"register.textfield.confirm.password.title" = "Confirm password";
+"register.label.confirm.password.error.message" = "Password not matching.";
+//Dashboard
+

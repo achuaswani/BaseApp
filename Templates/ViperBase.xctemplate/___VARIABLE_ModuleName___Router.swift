@@ -20,6 +20,7 @@ class ___VARIABLE_ModuleName___Router: ___VARIABLE_ModuleName___RouterToPresente
     typealias Style = ___VARIABLE_ModuleName___Style
     typealias Router = ___VARIABLE_ModuleName___Router
     typealias Interactor = ___VARIABLE_ModuleName___Interactor
+    typealias Service = ___VARIABLE_ModuleName___Service
 
     static func createModule() -> ___VARIABLE_ModuleName___View {
         let viewController = View()
@@ -27,6 +28,7 @@ class ___VARIABLE_ModuleName___Router: ___VARIABLE_ModuleName___RouterToPresente
         let presenter = Presenter()
         let router = Router()
         let interactor = Interactor()
+        let service = Service()
 
         viewController.presenter =  presenter
         viewController.style = style
@@ -35,6 +37,7 @@ class ___VARIABLE_ModuleName___Router: ___VARIABLE_ModuleName___RouterToPresente
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
+        interactor.service = service
 
         return viewController
     }

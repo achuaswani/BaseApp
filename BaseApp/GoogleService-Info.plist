@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>850776697409-vv27pssctruupukn3ou72mbd5qeshea0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.850776697409-vv27pssctruupukn3ou72mbd5qeshea0</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>850776697409-m8uas3cu135ffl1tt02qb63io9ebiouq.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCJADykr6jqvw9ICaVWU7jjqqx9eOsN1HA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>850776697409</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ras.GiftHunter</string>
+	<key>PROJECT_ID</key>
+	<string>gifthunter-47180</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gifthunter-47180.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:850776697409:ios:1fce7fa70cb1823b</string>
+	<key>DATABASE_URL</key>
+	<string>https://gifthunter-47180.firebaseio.com</string>
+</dict>
+</plist>

@@ -45,6 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible() // or you can use self.window?.isHidden = true
+        
+        /*
+         //find all font from Xcode
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                   print("== \(names)")
+            }
+        }*/
 
         return true
     }

@@ -8,17 +8,11 @@ target 'BaseApp' do
   # Pods for BaseApp
 
   # Pods for Crash reporting
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.14.0'
   # Pod for Google Analytics
-  pod 'Firebase/Core'
-  pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
-  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'SwiftyJSON'
   pod 'Alamofire'
-  pod 'RealmSwift'
   target 'BaseAppTests' do
     inherit! :search_paths
     # Pods for testing
