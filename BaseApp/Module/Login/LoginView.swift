@@ -27,14 +27,26 @@ class LoginView: UIViewController, UITextFieldDelegate {
     lazy var errorLabel: UILabel = UILabel(frame: .zero)
     lazy var loginButton: UIButton = UIButton(frame: .zero)
     lazy var registerButton: UIButton = UIButton(frame: .zero)
-    
-    
+    private var isFieldsAreEmpty: Bool {
+        errorLabel.text = ""
+        guard let email = emailTextField.text,
+            let password = passwordField.text,
+            email != "", password != "" else {
+                return true
+        }
+        presenter?.loginUser(email: email, password: password)
+        return false
+    }
 
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.start()
+        self.emailTextField.delegate = self
+        self.passwordField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,7 +124,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
             headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
-            headerImageView.heightAnchor.constraint(equalToConstant: 300),
+            headerImageView.heightAnchor.constraint(equalToConstant: 200),
             headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
             headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
@@ -143,13 +155,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
     }
 
     @objc private func loginButtonTapped() {
-        guard let email = emailTextField.text,
-            let password = passwordField.text,
-            email != "", password != "" else {
+        if isFieldsAreEmpty {
             errorLabel.text = "login.label.generic.error.message".localized()
             return
         }
-        presenter?.loginUser(email: email, password: password)
     }
     
     @objc private func registerButtonTapped() {
@@ -157,13 +166,32 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.navigationController?.pushViewController(registerRouter,animated: true)
     }
     
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        passwordField.resignFirstResponder()
-        //self.view.endEditing(true)
+        guard isFieldsAreEmpty else {
+            dimissKeyboard()
+            return true
+        }
+        passwordField.becomeFirstResponder()
         return false
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true);
+    
+    private func dimissKeyboard(){
+        self.view.endEditing(true)
     }
 }
 

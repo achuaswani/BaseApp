@@ -9,8 +9,10 @@
 import Foundation
 
 protocol RegisterServiceType {
-
+    func registerUser(email: String, password: String, closure: @escaping(Bool) -> ())
 }
 class RegisterService: RegisterServiceType {
-
+    func registerUser(email: String, password: String, closure: @escaping(Bool) -> ()) {
+        FBAuth().registerUser(email: email, password: password, closure: closure)
+    }
 }

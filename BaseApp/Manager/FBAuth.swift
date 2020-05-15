@@ -12,10 +12,10 @@ import Firebase
 class FBAuth {
     //var handle: AuthStateDidChangeListenerHandle?
     
-    func checkForUSerLoggedIn(handle: inout AuthStateDidChangeListenerHandle?, closure: @escaping (Bool?) -> ()) {
+    func checkForUSerLoggedIn(handle: inout AuthStateDidChangeListenerHandle?, closure: @escaping (Bool) -> ()) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if user == nil {
-                closure(nil)
+                closure(false)
             } else {
                 closure(true)
             }
@@ -26,7 +26,19 @@ class FBAuth {
         Auth.auth().removeStateDidChangeListener(handle)
     }
     
-    func loginUser(email: String, password: String, closure: @escaping (Bool?) -> ()) {
+    func registerUser(email: String, password: String, closure: @escaping (Bool) -> ()){
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let _ = authResult {
+                closure(true)
+            } else if let _ = error {
+                closure(false)
+            } else {
+                closure(false)
+            }
+        }
+    }
+    
+    func loginUser(email: String, password: String, closure: @escaping (Bool) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if user != nil {
                 closure(true)

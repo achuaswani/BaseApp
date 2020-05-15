@@ -13,7 +13,8 @@
 "login.label.generic.error.message" = "All fields are mandatory.";
 "login.label.email.validation.error.message" = "Enter valid email.";
 "login.label.password.validation.error.message" = "Enter valid password.";
-"login.label.password.min.error.message" = "Password should be atleast 8 characters";
+"login.label.password.min.error.message" = "Password should be atleast 8 characters.";
+"login.label.invalid.error.message" = "Email or Password is not correct. Please check and try again.";
 "login.button.login.title" = "Login";
 "login.button.register.title" = "Register";
 
@@ -21,5 +22,6 @@
 "register.label.header.title" = "Register new account";
 "register.textfield.confirm.password.title" = "Confirm password";
 "register.label.confirm.password.error.message" = "Password not matching.";
+"register.label.backend.error.message" = "Some went worng. Please try after sometime.";
 //Dashboard
 

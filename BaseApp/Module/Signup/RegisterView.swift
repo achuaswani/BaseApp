@@ -27,12 +27,28 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     lazy var scrollView = UIScrollView(frame: .zero)
     lazy var errorLabel: UILabel = UILabel(frame: .zero)
     lazy var registerButton: UIButton = UIButton(frame: .zero)
+    private var isFieldsAreEmpty: Bool {
+        errorLabel.text = ""
+        guard let email = emailTextField.text,
+            let password = passwordField.text,
+            let confirmPassword = confirmPasswordField.text,
+            email != "", password != "", confirmPassword != "" else {
+                return true
+        }
+        presenter?.registerUser(email: email, password: password, confirmPassword: confirmPassword)
+        return false
+    }
     
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.start()
+        self.emailTextField.delegate = self
+        self.passwordField.delegate = self
+        self.confirmPasswordField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     override func loadView() {
@@ -103,7 +119,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
             headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
-            headerImageView.heightAnchor.constraint(equalToConstant: 300),
+            headerImageView.heightAnchor.constraint(equalToConstant: 200),
             headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
             headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
@@ -136,18 +152,45 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     
     @objc private func registerButtonTapped() {
         errorLabel.text = ""
-        guard let email = emailTextField.text,
-            let password = passwordField.text,
-            let confirmPassword = confirmPasswordField.text,
-            email != "", password != "", confirmPassword != "" else {
+        guard isFieldsAreEmpty else {
             errorLabel.text = "login.label.generic.error.message".localized()
             return
         }
-        presenter?.registerUser(email: email, password: password, confirmPassword: confirmPassword)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard isFieldsAreEmpty else {
+            dimissKeyboard()
+            return true
+        }
+        if passwordField.text == "" {
+            passwordField.becomeFirstResponder()
+            return false
+        }
+        confirmPasswordField.becomeFirstResponder()
+        return false
+    }
+    
+    private func dimissKeyboard(){
+        self.view.endEditing(true)
     }
 }
 

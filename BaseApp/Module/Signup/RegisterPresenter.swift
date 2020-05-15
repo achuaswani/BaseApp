@@ -54,6 +54,15 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
             return
         }
         
+        interactor?.registerUser(email: email, password: email) { [weak self] user in
+            guard let self = self else { return }
+            guard user  else {
+                self.view?.display(errorMessage: "register.label.backend.error.message".localized())
+                return
+            }
+            self.view?.routeToDashboard()
+            
+        }
         
         
     }

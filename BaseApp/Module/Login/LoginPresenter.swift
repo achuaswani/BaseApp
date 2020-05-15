@@ -39,15 +39,17 @@ class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType
             return
         }
         
-        guard password.isValidPassword, password.count != 8 else {
+        guard password.isValidPassword else {
             view?.display(errorMessage: "login.label.password.validation.error.message".localized())
             return
         }
         
         interactor?.loginUser(email: email, password: password) { [weak self] user in
             guard let self = self else { return }
-            guard user != nil else { return }
-            print("\(user ?? false)")
+            guard user == true else {
+                self.view?.display(errorMessage: "login.label.invalid.error.message".localized())
+                return
+            }
             self.view?.routeToDashboard()
         }
     }

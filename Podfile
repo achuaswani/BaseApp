@@ -8,7 +8,10 @@ target 'BaseApp' do
   # Pods for BaseApp
 
   # Pods for Crash reporting
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.14.0'
   # Pod for Google Analytics
+  pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'SwiftyJSON'
