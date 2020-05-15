@@ -10,7 +10,7 @@ IDEWorkspaceChecks.plist
 
 # cocoapods
 Pods
-Podsfile.lock
+Podfile.lock
 
 # iTunes connect packages
 Package.itmsp
