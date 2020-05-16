@@ -53,10 +53,6 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
     override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
@@ -110,10 +106,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
         style.baseStyle.style(buttonLink: registerButton)
         scrollView.addSubview(registerButton)
         
-        addConstraints()
+        setupLayout()
     }
 
-    private func addConstraints() {
+    private func setupLayout() {
         let margins = view.layoutMarginsGuide
         let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 30
         let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 40

@@ -32,23 +32,34 @@ class DashboardView: UIViewController {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        logoutButton.setTitle("login.button.signup.title".localized(), for: .normal)
+        logoutButton.setTitle("dashboard.button.logout.title".localized(), for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
-        logoutButton.accessibilityIdentifier = "signupButton"
+        logoutButton.accessibilityIdentifier = "logout"
+        let settingsButton = UIButton(type: .custom)
+        settingsButton.setImage(UIImage(named: "icon-settings.png"), for: .normal)
+        settingsButton.setTitleColor(settingsButton.tintColor, for: .normal)
+        settingsButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
         style.style(button: logoutButton)
         view.addSubview(logoutButton)
-        addConstraints()
+        setupLayout()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.setHidesBackButton(true, animated: true);
     }
     
-    private func addConstraints() {
+    @objc private func logoutButtonTapped() {
+        presenter?.logoutUser()
+    }
+    
+    
+    @objc private func settingsTapped() {
+        routeToSettings()
+    }
+    
+    private func setupLayout() {
         let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             logoutButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
@@ -57,8 +68,9 @@ class DashboardView: UIViewController {
         ])
     }
     
-    @objc private func logoutButtonTapped() {
-        presenter?.logoutUser()
+    private func routeToSettings() {
+        let settingsRouter = SettingsRouter.createModule()
+        self.navigationController?.pushViewController(settingsRouter,animated: true)
     }
 }
 

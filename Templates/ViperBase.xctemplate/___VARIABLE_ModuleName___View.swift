@@ -29,14 +29,16 @@ class ___VARIABLE_ModuleName___View: UIViewController {
     override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
+        
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        let margins = view.layoutMarginsGuide
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

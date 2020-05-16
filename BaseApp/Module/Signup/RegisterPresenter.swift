@@ -44,7 +44,7 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
             return
         }
         
-        guard password.isValidPassword else {
+        guard password.count >= 8  else {
             view?.display(errorMessage: "login.label.password.validation.error.message".localized())
             return
         }
@@ -61,7 +61,6 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
                 return
             }
             self.view?.routeToDashboard()
-            
         }
         
         

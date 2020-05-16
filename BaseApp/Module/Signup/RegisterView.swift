@@ -105,10 +105,10 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         style.baseStyle.style(button: registerButton)
         scrollView.addSubview(registerButton)
     
-        addConstraints()
+        setupLayout()
     }
     
-    private func addConstraints() {
+    private func setupLayout() {
         let margins = view.layoutMarginsGuide
         let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 30
         let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 40
@@ -151,11 +151,10 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func registerButtonTapped() {
-        errorLabel.text = ""
         guard isFieldsAreEmpty else {
-            errorLabel.text = "login.label.generic.error.message".localized()
             return
         }
+        errorLabel.text = "login.label.generic.error.message".localized()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

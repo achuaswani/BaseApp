@@ -19,6 +19,12 @@
 		5B72FF67246B4EA5002FF7F1 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */; };
 		5B72FF69246B542A002FF7F1 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF68246B542A002FF7F1 /* FontStyle.swift */; };
 		5B72FF6B246B5DBD002FF7F1 /* BaseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF6A246B5DBD002FF7F1 /* BaseStyle.swift */; };
+		5B860ABA246F5C110058358D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB4246F5C110058358D /* SettingsView.swift */; };
+		5B860ABB246F5C110058358D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB5246F5C110058358D /* SettingsRouter.swift */; };
+		5B860ABC246F5C110058358D /* SettingsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB6246F5C110058358D /* SettingsStyle.swift */; };
+		5B860ABD246F5C110058358D /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB7246F5C110058358D /* SettingsService.swift */; };
+		5B860ABE246F5C110058358D /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB8246F5C110058358D /* SettingsInteractor.swift */; };
+		5B860ABF246F5C110058358D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB9246F5C110058358D /* SettingsPresenter.swift */; };
 		5BBCF222241C8F3A002BD0C0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21B241C8F3A002BD0C0 /* RegisterView.swift */; };
 		5BBCF223241C8F3A002BD0C0 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21C241C8F3A002BD0C0 /* RegisterRouter.swift */; };
 		5BBCF224241C8F3A002BD0C0 /* RegisterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21D241C8F3A002BD0C0 /* RegisterStyle.swift */; };
@@ -80,6 +86,12 @@
 		5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		5B72FF68246B542A002FF7F1 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		5B72FF6A246B5DBD002FF7F1 /* BaseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStyle.swift; sourceTree = "<group>"; };
+		5B860AB4246F5C110058358D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5B860AB5246F5C110058358D /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		5B860AB6246F5C110058358D /* SettingsStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStyle.swift; sourceTree = "<group>"; };
+		5B860AB7246F5C110058358D /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		5B860AB8246F5C110058358D /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		5B860AB9246F5C110058358D /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		5BBCF21B241C8F3A002BD0C0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5BBCF21C241C8F3A002BD0C0 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		5BBCF21D241C8F3A002BD0C0 /* RegisterStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStyle.swift; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 		5B72FF3C2468A66E002FF7F1 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				5B860AB3246F5BF60058358D /* Settings */,
 				5BBCF21A241C8F1C002BD0C0 /* Signup */,
 				83074A9723FDE8AD0055EFE9 /* Dashboard */,
 				8390CCB523DA4D4500E0DBBD /* Login */,
@@ -193,6 +206,19 @@
 				5B72FF64246A2AAD002FF7F1 /* UserDataEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		5B860AB3246F5BF60058358D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5B860AB4246F5C110058358D /* SettingsView.swift */,
+				5B860AB5246F5C110058358D /* SettingsRouter.swift */,
+				5B860AB6246F5C110058358D /* SettingsStyle.swift */,
+				5B860AB7246F5C110058358D /* SettingsService.swift */,
+				5B860AB8246F5C110058358D /* SettingsInteractor.swift */,
+				5B860AB9246F5C110058358D /* SettingsPresenter.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		5BBCF21A241C8F1C002BD0C0 /* Signup */ = {
@@ -586,10 +612,15 @@
 				5BBCF224241C8F3A002BD0C0 /* RegisterStyle.swift in Sources */,
 				8390CCDF23E0C46400E0DBBD /* LoginService.swift in Sources */,
 				5B72FF3E2468A6BC002FF7F1 /* FBAuth.swift in Sources */,
+				5B860ABB246F5C110058358D /* SettingsRouter.swift in Sources */,
 				8390CCC523DB7E8000E0DBBD /* Util.swift in Sources */,
+				5B860ABE246F5C110058358D /* SettingsInteractor.swift in Sources */,
 				5BBCF223241C8F3A002BD0C0 /* RegisterRouter.swift in Sources */,
 				5B72FF69246B542A002FF7F1 /* FontStyle.swift in Sources */,
 				83074AA523FDE8C30055EFE9 /* DashboardPresenter.swift in Sources */,
+				5B860ABC246F5C110058358D /* SettingsStyle.swift in Sources */,
+				5B860ABA246F5C110058358D /* SettingsView.swift in Sources */,
+				5B860ABD246F5C110058358D /* SettingsService.swift in Sources */,
 				8390CCDE23E0C46400E0DBBD /* LoginStyle.swift in Sources */,
 				8390CCDD23E0C46400E0DBBD /* LoginRouter.swift in Sources */,
 				5B72FF6B246B5DBD002FF7F1 /* BaseStyle.swift in Sources */,
@@ -604,6 +635,7 @@
 				83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */,
 				5BBCF228241C8F3A002BD0C0 /* RegisterPresenter.swift in Sources */,
 				5B72FF382464727B002FF7F1 /* LocalizableLanguage.swift in Sources */,
+				5B860ABF246F5C110058358D /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

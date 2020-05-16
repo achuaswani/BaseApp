@@ -24,4 +24,4 @@
 "register.label.confirm.password.error.message" = "Password not matching.";
 "register.label.backend.error.message" = "Some went worng. Please try after sometime.";
 //Dashboard
-
+"dashboard.button.logout.title" = "Logout";
