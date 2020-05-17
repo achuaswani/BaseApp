@@ -10,10 +10,9 @@ import Foundation
 import Firebase
 
 class FBAuth {
-    //var handle: AuthStateDidChangeListenerHandle?
-    
+    let firebaseAuth = Auth.auth()
     func checkForUSerLoggedIn(handle: inout AuthStateDidChangeListenerHandle?, closure: @escaping (Bool) -> ()) {
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        handle = firebaseAuth.addStateDidChangeListener { (auth, user) in
             if user == nil {
                 closure(false)
             } else {
@@ -23,11 +22,11 @@ class FBAuth {
     }
     
     func removeState(handle: AuthStateDidChangeListenerHandle) {
-        Auth.auth().removeStateDidChangeListener(handle)
+        firebaseAuth.removeStateDidChangeListener(handle)
     }
     
     func registerUser(email: String, password: String, closure: @escaping (Bool) -> ()){
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        firebaseAuth.createUser(withEmail: email, password: password) { authResult, error in
             if let _ = authResult {
                 closure(true)
             } else if let _ = error {
@@ -39,7 +38,7 @@ class FBAuth {
     }
     
     func loginUser(email: String, password: String, closure: @escaping (Bool) -> ()) {
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        firebaseAuth.signIn(withEmail: email, password: password) { (user, error) in
             if user != nil {
                 closure(true)
             } else if error != nil {
@@ -52,7 +51,6 @@ class FBAuth {
     }
     
     func logout(closure: @escaping (Bool?) -> ()) {
-        let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             closure(true)

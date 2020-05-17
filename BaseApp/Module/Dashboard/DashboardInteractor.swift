@@ -10,14 +10,9 @@ import Foundation
 import UIKit
 
 protocol DashboardInteractorToPresenterType {
-     func logout(closure: @escaping (Bool?) -> ())
+     
 }
 class DashboardInteractor: DashboardInteractorToPresenterType {
     var presenter: DashboardPresenter?
     var service: DashboardService?
-    
-    func logout(closure: @escaping (Bool?) -> ()) {
-        service?.logout(closure: closure)
-    }
-
 }

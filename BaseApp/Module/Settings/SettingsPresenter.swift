@@ -17,8 +17,8 @@ protocol SettingsPresenterToRouterType: class {
 }
 
 protocol SettingsPresenterToViewType: class {
-    // TODO: Declare presentation methods
-     func start()
+    func start()
+    func logoutUser()
 }
 
 class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToRouterType, SettingsPresenterToViewType {
@@ -31,5 +31,16 @@ class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToR
     
     func start(){
 
+    }
+    
+    func logoutUser() {
+        interactor?.logout(){ [weak self] isLogout in
+            guard let self = self else { return }
+            guard let logout = isLogout, logout == true else {
+                self.view?.displayErrorPopup()
+                return
+            }
+            self.view?.routeToLogin()
+        }
     }
 }

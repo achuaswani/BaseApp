@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 
 protocol SettingsInteractorToPresenterType {
+    func logout(closure: @escaping (Bool?) -> ())
 }
 class SettingsInteractor: SettingsInteractorToPresenterType {
     var presenter: SettingsPresenter?
     var service:  SettingsService?
+    
+    func logout(closure: @escaping (Bool?) -> ()) {
+        service?.logout(closure: closure)
+    }
 }

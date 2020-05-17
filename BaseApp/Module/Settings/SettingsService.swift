@@ -9,8 +9,10 @@
 import Foundation
 
 protocol SettingsServiceType {
-
+    func logout(closure: @escaping (Bool?) -> ())
 }
 class SettingsService: SettingsServiceType {
-
+    func logout(closure: @escaping (Bool?) -> ()) {
+        FBAuth().logout(closure: closure)
+    }
 }

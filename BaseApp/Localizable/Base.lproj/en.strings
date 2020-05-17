@@ -23,5 +23,7 @@
 "register.textfield.confirm.password.title" = "Confirm password";
 "register.label.confirm.password.error.message" = "Password not matching.";
 "register.label.backend.error.message" = "Some went worng. Please try after sometime.";
-//Dashboard
+//Settings
 "dashboard.button.logout.title" = "Logout";
+"dashboard.button.logout.profile" = "Profile";
+"dashboard.button.logout.about" = "About";

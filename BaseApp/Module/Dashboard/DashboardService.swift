@@ -9,10 +9,6 @@
 import Foundation
 
 protocol DashboardServiceType {
-     func logout(closure: @escaping (Bool?) -> ())
 }
 class DashboardService: DashboardServiceType {
-    func logout(closure: @escaping (Bool?) -> ()) {
-        FBAuth().logout(closure: closure)
-    }
 }

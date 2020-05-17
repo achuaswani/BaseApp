@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 
 protocol SettingsViewType {
-
+    func routeToLogin()
+    func displayErrorPopup()
 }
 class SettingsView: UIViewController {
     // MARK: Properties
     var presenter: SettingsPresenterToViewType?
     var style: SettingsStyleType!
     let tableView = UITableView()
-    var settingsItems = ["Profile", "About", "Logout"]
+    var settingsItems = ["dashboard.button.logout.profile".localized(),
+                         "dashboard.button.logout.about".localized(),
+                         "dashboard.button.logout.title".localized()]
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -64,5 +67,25 @@ extension SettingsView: SettingsViewType, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = settingsItems[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if settingsItems[indexPath.row] == "dashboard.button.logout.title".localized() {
+            presenter?.logoutUser()
+        }
+    }
+    
+    func routeToLogin() {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+   
+    func displayErrorPopup() {
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+            }
+          )
+        )
+        self.present(alert, animated: true, completion: nil)
     }
 }

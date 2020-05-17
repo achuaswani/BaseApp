@@ -18,7 +18,6 @@ protocol DashboardPresenterToRouterType: class {
 
 protocol DashboardPresenterToViewType: class {
     func start()
-    func logoutUser()
     
 }
 
@@ -32,16 +31,5 @@ class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenter
     
     func start(){
         
-    }
-    
-    func logoutUser() {
-        interactor?.logout(){ [weak self] isLogout in
-            guard let self = self else { return }
-            guard let logout = isLogout, logout == true else {
-                self.view?.displayErrorPopup()
-                return
-            }
-            self.view?.routeToLogin()
-        }
     }
 }
