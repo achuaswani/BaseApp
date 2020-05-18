@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol LoginViewType {
-    func routeToDashboard()
+    func routeToDashboard(with userData: UserDataEntity)
     func display(errorMessage: String)
 }
 class LoginView: UIViewController, UITextFieldDelegate {
@@ -192,8 +192,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
 }
 
 extension LoginView: LoginViewType {
-    func routeToDashboard() {
-        let dashboardRouter = DashboardRouter.createModule()
+    func routeToDashboard(with userData: UserDataEntity) {
+        let dashboardRouter = DashboardRouter.createModule(with: userData)
         self.navigationController?.pushViewController(dashboardRouter,animated: true)
     }
     

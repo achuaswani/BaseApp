@@ -22,17 +22,16 @@ class DashboardRouter: DashboardRouterToPresenterType {
     typealias Interactor = DashboardInteractor
     typealias Service = DashboardService
 
-    static func createModule() -> DashboardView {
+    static func createModule(with data: UserDataEntity) -> DashboardView {
         let viewController = View()
         let style = Style()
-        let presenter = Presenter()
+        let presenter = Presenter(userData: data)
         let router = Router()
         let interactor = Interactor()
         let service = Service()
-
+        
         viewController.presenter =  presenter
         viewController.style = style
-
         presenter.view = viewController
         presenter.router = router
         presenter.interactor = interactor

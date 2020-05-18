@@ -28,8 +28,12 @@ class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenter
     weak var view: DashboardView?
     var router: DashboardRouter?
     var interactor: DashboardInteractor?
-    
-    func start(){
-        
+    var userData: UserDataEntity
+    init(userData: UserDataEntity) {
+        self.userData = userData
+    }
+    func start() {
+        guard let displayName = userData.userName else { return }
+        view?.display(title: "dashboard.header.welcome.title".localized(with: displayName))
     }
 }

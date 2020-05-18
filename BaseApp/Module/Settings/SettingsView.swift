@@ -18,10 +18,12 @@ class SettingsView: UIViewController {
     var presenter: SettingsPresenterToViewType?
     var style: SettingsStyleType!
     let tableView = UITableView()
-    var settingsItems = ["dashboard.button.logout.profile".localized(),
-                         "dashboard.button.logout.about".localized(),
-                         "dashboard.button.logout.title".localized()]
-
+    var settingsItems: [String] {
+        guard let presenter = presenter else {
+            return []
+        }
+        return presenter.getSettingsItems()
+    }
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

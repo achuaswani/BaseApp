@@ -11,13 +11,13 @@ import Firebase
 
 class FBAuth {
     let firebaseAuth = Auth.auth()
-    func checkForUSerLoggedIn(handle: inout AuthStateDidChangeListenerHandle?, closure: @escaping (Bool) -> ()) {
+    func checkForUserLoggedIn(handle: inout AuthStateDidChangeListenerHandle?, closure: @escaping (User?) -> ()) {
         handle = firebaseAuth.addStateDidChangeListener { (auth, user) in
-            if user == nil {
-                closure(false)
-            } else {
-                closure(true)
+            guard let user = user else {
+                closure(nil)
+                return
             }
+            closure(user)
         }
     }
     
@@ -25,26 +25,26 @@ class FBAuth {
         firebaseAuth.removeStateDidChangeListener(handle)
     }
     
-    func registerUser(email: String, password: String, closure: @escaping (Bool) -> ()){
+    func registerUser(email: String, password: String, closure: @escaping (User?, Error?) -> ()){
         firebaseAuth.createUser(withEmail: email, password: password) { authResult, error in
-            if let _ = authResult {
-                closure(true)
-            } else if let _ = error {
-                closure(false)
+            if let result = authResult {
+                closure(result.user, nil)
+            } else if let error = error {
+                closure(nil, error)
             } else {
-                closure(false)
+                closure(nil, nil)
             }
         }
     }
     
-    func loginUser(email: String, password: String, closure: @escaping (Bool) -> ()) {
-        firebaseAuth.signIn(withEmail: email, password: password) { (user, error) in
-            if user != nil {
-                closure(true)
+    func loginUser(email: String, password: String, closure: @escaping (User?, Error?) -> ()) {
+        firebaseAuth.signIn(withEmail: email, password: password) { authResult, error in
+            if let result = authResult {
+                closure(result.user, nil)
             } else if error != nil {
-                closure(false)
+                closure(nil, error)
             } else {
-                closure(false)
+                closure(nil, nil)
             }
             
         }

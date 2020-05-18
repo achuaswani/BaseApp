@@ -44,13 +44,17 @@ class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType
             return
         }
         
-        interactor?.loginUser(email: email, password: password) { [weak self] user in
+        interactor?.loginUser(email: email, password: password) { [weak self] user, error in
             guard let self = self else { return }
-            guard user == true else {
-                self.view?.display(errorMessage: "login.label.invalid.error.message".localized())
+            guard let userData = user else {
+                if let error = error {
+                    self.view?.display(errorMessage: error.localizedDescription)
+                } else {
+                    self.view?.display(errorMessage: "login.label.invalid.error.message".localized())
+                }
                 return
             }
-            self.view?.routeToDashboard()
+            self.view?.routeToDashboard(with: userData)
         }
     }
 }

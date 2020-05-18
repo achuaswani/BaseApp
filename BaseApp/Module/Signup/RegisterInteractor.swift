@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 protocol RegisterInteractorToPresenterType {
-    func registerUser(email: String, password: String, closure: @escaping(Bool) -> ())
+    func registerUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) -> ())
 }
 class RegisterInteractor: RegisterInteractorToPresenterType {
     var presenter: RegisterPresenter?
     var service: RegisterService?
     
-    func registerUser(email: String, password: String, closure: @escaping(Bool) -> ()) {
+    func registerUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) -> ()) {
         service?.registerUser(email: email, password: email, closure: closure)
     }
 

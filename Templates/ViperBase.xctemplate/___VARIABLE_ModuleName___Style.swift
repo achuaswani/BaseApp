@@ -10,10 +10,8 @@ import Foundation
 import UIKit
 
 protocol ___VARIABLE_ModuleName___StyleType {
-    var backgroundColor: UIColor { get }
+     var baseStyle: BaseStyle { get }
 }
 class ___VARIABLE_ModuleName___Style: ___VARIABLE_ModuleName___StyleType {
-    var backgroundColor: UIColor {
-        return .white
-    }
+     var baseStyle: BaseStyle()
 }

@@ -11,7 +11,7 @@ import UIKit
 
 protocol RegisterViewType {
     func display(errorMessage: String)
-
+    func routeToDashboard(with userData: UserDataEntity)
 }
 class RegisterView: UIViewController, UITextFieldDelegate {
 
@@ -194,8 +194,8 @@ class RegisterView: UIViewController, UITextFieldDelegate {
 }
 
 extension RegisterView: RegisterViewType {
-    func routeToDashboard() {
-        let dashboard = DashboardRouter.createModule()
+    func routeToDashboard(with userData: UserDataEntity) {
+        let dashboard = DashboardRouter.createModule(with: userData)
         self.navigationController?.pushViewController(dashboard,animated: true)
     }
     

@@ -9,10 +9,21 @@
 import Foundation
 
 protocol LoginServiceType {
-    func loginUser(email: String, password: String, closure: @escaping (Bool?) ->())
+    func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->())
 }
 class LoginService: LoginServiceType {
-    func loginUser(email: String, password: String, closure: @escaping (Bool?) ->()) {
-         FBAuth().loginUser(email: email,password: password, closure: closure)
+    func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->()) {
+        FBAuth().loginUser(email: email,password: password) { user, error in
+            guard let user = user else {
+                closure(nil, error)
+              return
+            }
+            let userData = UserDataEntity(userId: user.providerID,
+                            emailId: user.email,
+                            photoURL: user.photoURL,
+                            userName: user.displayName)
+            closure(userData, nil)
+            
+        }
     }
 }

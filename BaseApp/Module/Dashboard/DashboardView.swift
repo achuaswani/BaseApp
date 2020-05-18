@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol DashboardViewType {
+    func display(title: String)
 }
 class DashboardView: UIViewController {
 
@@ -17,7 +18,8 @@ class DashboardView: UIViewController {
 
     var presenter: DashboardPresenterToViewType?
     var style: DashboardStyleType!
-    lazy var logoutButton: UIButton = UIButton(frame: .zero)
+    lazy var scrollView = UIScrollView(frame: .zero)
+    lazy var headerLabel: UILabel = UILabel(frame: .zero)
 
     // MARK: Lifecycle
 
@@ -34,8 +36,13 @@ class DashboardView: UIViewController {
         settingsButton.setTitleColor(settingsButton.tintColor, for: .normal)
         settingsButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
-        style.style(button: logoutButton)
-        view.addSubview(logoutButton)
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.accessibilityIdentifier = "headerLabel"
+        style.baseStyle.style(title: headerLabel)
+        scrollView.addSubview(headerLabel)
         setupLayout()
     }
 
@@ -61,5 +68,7 @@ class DashboardView: UIViewController {
 }
 
 extension DashboardView: DashboardViewType {
-   
+    func display(title: String) {
+        
+    }
 }

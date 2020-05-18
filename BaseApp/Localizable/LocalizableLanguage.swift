@@ -61,13 +61,17 @@ extension String {
             if let url = Bundle.main.url(forResource: "\(currentLanguage.rawValue)",
                 withExtension: "strings"),
                 let stringDict = NSDictionary(contentsOf: url) as? [String: String],
-                let localizedString = stringDict[self]{
-                return localizedString
-            } else {
-                return self
-            }
+                let localizedString = stringDict[self] {
+                 return localizedString
+                } else {
+                 return self
+                }
         } else {
             return self
         }
+    }
+    
+    public func localized(with element: String) -> String {
+        return String(format: NSLocalizedString(self, comment: ""), element)
     }
 }

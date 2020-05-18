@@ -19,6 +19,7 @@ protocol SettingsPresenterToRouterType: class {
 protocol SettingsPresenterToViewType: class {
     func start()
     func logoutUser()
+    func getSettingsItems() -> [String]
 }
 
 class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToRouterType, SettingsPresenterToViewType {
@@ -42,5 +43,11 @@ class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToR
             }
             self.view?.routeToLogin()
         }
+    }
+    
+    func getSettingsItems() -> [String] {
+         return ["settings.button.logout.profile".localized(),
+                "settings.button.logout.about".localized(),
+                 "settings.button.logout.title".localized()]
     }
 }

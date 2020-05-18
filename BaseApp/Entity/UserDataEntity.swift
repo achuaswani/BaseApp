@@ -9,15 +9,15 @@
 import Foundation
 
 class UserDataEntity {
-    let userId: String
-    let emailId: String
-    let photoURL: String
-    let userName: String
+    let userId: String?
+    let emailId: String?
+    let photoURL: URL?
+    let userName: String?
     
-    init(userId: String,
-         emailId: String,
-         photoURL: String,
-         userName: String) {
+    init(userId: String?,
+         emailId: String?,
+         photoURL: URL?,
+         userName: String?) {
         self.userId = userId
         self.emailId = emailId
         self.photoURL = photoURL

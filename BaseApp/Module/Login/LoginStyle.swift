@@ -13,5 +13,5 @@ protocol LoginStyleType {
     var baseStyle: BaseStyle { get }
 }
 class LoginStyle: LoginStyleType {
-    let baseStyle = BaseStyle()
+    var baseStyle = BaseStyle()
 }

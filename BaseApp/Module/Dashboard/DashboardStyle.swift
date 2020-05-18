@@ -10,17 +10,8 @@ import Foundation
 import UIKit
 
 protocol DashboardStyleType {
-    var backgroundColor: UIColor { get }
-    func style(button: UIButton)
+     var baseStyle: BaseStyle { get }
 }
 class DashboardStyle: DashboardStyleType {
-    var backgroundColor: UIColor {
-        return .white
-    }
-    
-    func style(button: UIButton) {
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-    }
+    var baseStyle = BaseStyle()
 }

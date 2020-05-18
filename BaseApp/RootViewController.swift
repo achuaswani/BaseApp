@@ -19,14 +19,17 @@ class RootViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        FBAuth().checkForUSerLoggedIn(handle: &handle){ user in
-            if user == true {
-               let dashboardRouter = DashboardRouter.createModule()
-               self.navigationController?.pushViewController(dashboardRouter,animated: false)
+        FBAuth().checkForUserLoggedIn(handle: &handle) { user in
+            if let user = user {
+                let userData = UserDataEntity(userId: user.providerID,
+                             emailId: user.email,
+                             photoURL: user.photoURL,
+                             userName: user.displayName)
+                let dashboardRouter = DashboardRouter.createModule(with: userData )
+                self.navigationController?.pushViewController(dashboardRouter,animated: false)
             } else {
-                let loginRouter = LoginRouter.createModule()
-                self.navigationController?.pushViewController(loginRouter,animated: false)
-               
+               let loginRouter = LoginRouter.createModule()
+               self.navigationController?.pushViewController(loginRouter,animated: false)
             }
         }
     }
