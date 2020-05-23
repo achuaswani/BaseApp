@@ -90,9 +90,10 @@ class FBAuth {
         }
     }
     
-    func reauthenticate(with email: String, password: String, closure: @escaping (Error?) -> ()) {
+    func reauthenticate(password: String, closure: @escaping (Error?) -> ()) {
+        guard let user = firebaseAuth.currentUser, let email = user.email else { return }
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        firebaseAuth.currentUser?.reauthenticate(with: credential, completion: { _, error in
+        user.reauthenticate(with: credential, completion: { _, error in
             guard let error = error else {
                 closure(nil)
                 return

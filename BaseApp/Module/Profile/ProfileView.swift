@@ -13,7 +13,6 @@ protocol ProfileViewType {
     func displayUserDetails(with userdata: UserDataEntity)
     func display(errorMessage: String)
     func displaySuccessAlert()
-
 }
 class ProfileView: UIViewController, UITextFieldDelegate {
 
@@ -73,9 +72,9 @@ class ProfileView: UIViewController, UITextFieldDelegate {
         scrollView.addSubview(userNameTextField)
 
         updateUserNameButton.translatesAutoresizingMaskIntoConstraints = false
-        updateUserNameButton.setTitle("profile.button.update.user.data.title".localized(), for: .normal)
+        updateUserNameButton.setTitle("profile.button.update.display.name.title".localized(), for: .normal)
         updateUserNameButton.addTarget(self, action: #selector(updateUserName), for: .touchUpInside)
-        updateUserNameButton.accessibilityIdentifier = "updateProfile"
+        updateUserNameButton.accessibilityIdentifier = "updateDisplayName"
         style.baseStyle.style(button: updateUserNameButton)
         scrollView.addSubview(updateUserNameButton)
         
@@ -101,9 +100,9 @@ class ProfileView: UIViewController, UITextFieldDelegate {
         scrollView.addSubview(currentPasswordField)
         
         updateEmailIdButton.translatesAutoresizingMaskIntoConstraints = false
-        updateEmailIdButton.setTitle("profile.button.update.user.data.title".localized(), for: .normal)
+        updateEmailIdButton.setTitle("profile.button.update.email.id.title".localized(), for: .normal)
         updateEmailIdButton.addTarget(self, action: #selector(updateEmailId), for: .touchUpInside)
-        updateEmailIdButton.accessibilityIdentifier = "updateProfile"
+        updateEmailIdButton.accessibilityIdentifier = "updateEmailId"
         style.baseStyle.style(button: updateEmailIdButton)
         scrollView.addSubview(updateEmailIdButton)
 
@@ -136,9 +135,9 @@ class ProfileView: UIViewController, UITextFieldDelegate {
         scrollView.addSubview(errorLabel)
         
         updatePasswordButton.translatesAutoresizingMaskIntoConstraints = false
-        updatePasswordButton.setTitle("profile.button.update.user.data.title".localized(), for: .normal)
+        updatePasswordButton.setTitle("profile.button.update.password.title".localized(), for: .normal)
         updatePasswordButton.addTarget(self, action: #selector(updatePassword), for: .touchUpInside)
-        updatePasswordButton.accessibilityIdentifier = "updateProfile"
+        updatePasswordButton.accessibilityIdentifier = "updatePassword"
         style.baseStyle.style(button: updatePasswordButton)
         scrollView.addSubview(updatePasswordButton)
         
@@ -162,7 +161,7 @@ class ProfileView: UIViewController, UITextFieldDelegate {
             
             updateUserNameLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             updateUserNameLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-            updateUserNameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10),
+            updateUserNameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: generalSpacing),
            
             userNameTextField.topAnchor.constraint(equalTo: updateUserNameLabel.bottomAnchor, constant: 10),
             userNameTextField.leadingAnchor.constraint(equalTo: updateUserNameLabel.leadingAnchor),
@@ -202,11 +201,11 @@ class ProfileView: UIViewController, UITextFieldDelegate {
             
             errorLabel.leadingAnchor.constraint(equalTo: confirmPasswordField.leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor),
-            errorLabel.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: generalSpacing),
+            errorLabel.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 5),
             
-            updatePasswordButton.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 10),
-            updatePasswordButton.leadingAnchor.constraint(equalTo: confirmPasswordField.leadingAnchor),
-            updatePasswordButton.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor)
+            updatePasswordButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 10),
+            updatePasswordButton.leadingAnchor.constraint(equalTo: errorLabel.leadingAnchor),
+            updatePasswordButton.trailingAnchor.constraint(equalTo: errorLabel.trailingAnchor)
         ])
         
     }
@@ -216,18 +215,21 @@ class ProfileView: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func updateEmailId() {
-        guard let emailId = emailIdTextField.text else {
+        guard let emailId = emailIdTextField.text,
+            let currentPassword = currentPasswordField.text  else {
             return
         }
-        presenter?.updateEmailId(email: emailId)
+        presenter?.updateEmailId(email: emailId, currentPassword: currentPassword)
     }
     
     @objc private func updatePassword() {
         errorLabel.text = ""
-        if let newPassword = newPasswordField.text,
-            let confirmPassword = confirmPasswordField.text,
-             newPassword != "", confirmPassword != ""  {
-            presenter?.updatePassword(newPassword: newPassword,
+        if let password = currentPasswordField.text,
+           let newPassword = newPasswordField.text,
+           let confirmPassword = confirmPasswordField.text,
+           password != "", newPassword != "", confirmPassword != ""  {
+            presenter?.updatePassword(currentPassword: password,
+                                      newPassword: newPassword,
                                       confirmPassword: confirmPassword)
         } else {
             errorLabel.text = "login.label.generic.error.message".localized()

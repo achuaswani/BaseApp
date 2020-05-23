@@ -18,8 +18,8 @@ protocol ProfilePresenterToRouterType: class {
 
 protocol ProfilePresenterToViewType: class {
      func start()
-     func updateEmailId(email: String)
-     func updatePassword(newPassword: String, confirmPassword: String)
+     func updateEmailId(email: String, currentPassword: String)
+     func updatePassword(currentPassword: String, newPassword: String, confirmPassword: String)
      func updateDisplayName(displayName: String)
      func didUpdatedUserDetails()
 }
@@ -41,13 +41,18 @@ class ProfilePresenter: ProfilePresenterToInteractorType, ProfilePresenterToRout
         view?.displayUserDetails(with: userData)
     }
     
-    func updateEmailId(email: String) {
-        if email != userData.emailId {
-            
+    func updateEmailId(email: String, currentPassword: String) {
+        if email != userData.emailId, currentPassword != "" {
+            interactor?.updateEmailId(to: email, currentPassword: currentPassword)
         }
     }
     
-    func updatePassword(newPassword: String, confirmPassword: String) {
+    func updatePassword(currentPassword: String, newPassword: String, confirmPassword: String) {
+        guard currentPassword != newPassword else {
+            view?.display(errorMessage: "profile.label.password.same.error.message".localized())
+            return
+        }
+        
         guard newPassword == confirmPassword else {
             view?.display(errorMessage: "register.label.confirm.password.error.message".localized())
             return
@@ -57,7 +62,7 @@ class ProfilePresenter: ProfilePresenterToInteractorType, ProfilePresenterToRout
             view?.display(errorMessage: "login.label.password.validation.error.message".localized())
             return
         }
-        self.interactor?.updatePassword(to: newPassword)
+       interactor?.updatePassword(to: newPassword)
     }
     
     func updateDisplayName(displayName: String) {

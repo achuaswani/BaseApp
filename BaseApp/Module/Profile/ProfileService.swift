@@ -11,7 +11,7 @@ import Foundation
 protocol ProfileServiceType {
     func loginUser(email: String, password: String, closure: @escaping (Error?) ->())
     func updateProfilePicture(to url: String, closure: @escaping (Error?) -> ())
-    func updateEmailId(to email: String, closure: @escaping (Error?) -> ())
+    func updateEmailId(to email: String, currentPassword: String, closure: @escaping (Error?) -> ())
     func updatePassword(to password: String, closure: @escaping (Error?) -> ())
     func updateDisplayName(displayName: String?, closure: @escaping (Error?) -> ())
 }
@@ -31,8 +31,14 @@ class ProfileService: ProfileServiceType {
         FBAuth().updateUserDetails(userName: nil, profilePicture: nil, closure: closure)
     }
     
-    func updateEmailId(to email: String, closure: @escaping (Error?) -> ()) {
-         FBAuth().updateEmailId(to: email, closure: closure)
+    func updateEmailId(to email: String, currentPassword: String, closure: @escaping (Error?) -> ()) {
+        reAuthenticate(password: currentPassword) { error in
+            if error != nil {
+                FBAuth().updateEmailId(to: email, closure: closure)
+            } else {
+                closure(error)
+            }
+        }
     }
     
     func updatePassword(to password: String, closure: @escaping (Error?) -> ()) {
@@ -43,7 +49,7 @@ class ProfileService: ProfileServiceType {
         FBAuth().updateUserDetails(userName: displayName, profilePicture: nil, closure: closure)
     }
     
-    func reAuthenticate(email: String, password: String, closure: @escaping (Error?) -> ()) {
-        FBAuth().reauthenticate(with: email, password: password, closure: closure)
+    func reAuthenticate(password: String, closure: @escaping (Error?) -> ()) {
+        FBAuth().reauthenticate(password: password, closure: closure)
     }
 }
