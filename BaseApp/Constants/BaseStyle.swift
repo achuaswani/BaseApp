@@ -36,7 +36,15 @@ class BaseStyle: BaseStyleType {
     func style(title: UILabel) {
         title.textAlignment = .center
         title.numberOfLines = 1
+        title.textColor = .black
         title.font = font.title
+    }
+    
+    func style(header1: UILabel) {
+        header1.textAlignment = .left
+        header1.numberOfLines = 1
+        header1.textColor = .black
+        header1.font = font.header1
     }
     
     func style(error: UILabel) {

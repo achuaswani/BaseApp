@@ -60,4 +60,45 @@ class FBAuth {
         }
     }
     
+    func updateUserDetails(userName: String?, profilePicture: URL?, closure: @escaping (Error?) -> ()) {
+        let changeRequest = firebaseAuth.currentUser?.createProfileChangeRequest()
+        if userName != nil {
+            changeRequest?.displayName = userName
+        }
+        if profilePicture != nil {
+            changeRequest?.photoURL = profilePicture
+        }
+
+        changeRequest?.commitChanges { error in
+            if error == nil {
+                closure(nil)
+            } else {
+                closure(error)
+            }
+        }
+    }
+    
+    func updateEmailId(to email: String, closure: @escaping (Error?) -> ()) {
+        firebaseAuth.currentUser?.updateEmail(to: email) { error in
+            closure(error)
+        }
+    }
+    
+    func updatePassword(to password: String, closure: @escaping (Error?) -> ()) {
+        firebaseAuth.currentUser?.updatePassword(to: password) { error in
+            closure(error)
+        }
+    }
+    
+    func reauthenticate(with email: String, password: String, closure: @escaping (Error?) -> ()) {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        firebaseAuth.currentUser?.reauthenticate(with: credential, completion: { _, error in
+            guard let error = error else {
+                closure(nil)
+                return
+            }
+            closure(error)
+        })
+    }
+    
 }

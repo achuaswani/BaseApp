@@ -23,11 +23,20 @@
 "register.textfield.confirm.password.title" = "Confirm password";
 "register.label.confirm.password.error.message" = "Password not matching.";
 "register.label.backend.error.message" = "Some went worng. Please try after sometime.";
+"register.textfield.username.title" = "Enter user name";
 
 //Dashboard
-"dashboard.header.welcome.title" = "Welcome %@";
+"dashboard.header.welcome.title" = "Welcome";
 
 //Settings
-"settings.button.logout.title" = "Logout";
-"settings.button.logout.profile" = "Profile";
-"settings.button.logout.about" = "About";
+"settings.list.item.logout" = "Logout";
+"settings.list.item.profile" = "Profile";
+"settings.list.item.about" = "About";
+
+//profile
+"profile.label.reset.emailid.title" = "Reset Emailid";
+"profile.label.reset.password.title" = "Reset password";
+"profile.textfield.current.password.title" = "Enter current password";
+"profile.textfield.new.password.title" = "Enter new password";
+"profile.button.update.user.data.title" = "Update user details";
+"profile.label.password.validation.error.message" = "Incorrect Password";

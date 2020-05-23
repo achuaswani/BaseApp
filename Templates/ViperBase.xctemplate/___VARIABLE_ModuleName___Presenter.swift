@@ -29,7 +29,7 @@ class ___VARIABLE_ModuleName___Presenter: ___VARIABLE_ModuleName___PresenterToIn
     var router: ___VARIABLE_ModuleName___Router?
     var interactor: ___VARIABLE_ModuleName___Interactor?
     
-    func start(){
+    func start() {
 
     }
 }

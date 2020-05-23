@@ -19,7 +19,7 @@ class LoginService: LoginServiceType {
               return
             }
             let userData = UserDataEntity(userId: user.providerID,
-                            emailId: user.email,
+                            emailId: email,
                             photoURL: user.photoURL,
                             userName: user.displayName)
             closure(userData, nil)

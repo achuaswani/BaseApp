@@ -24,6 +24,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     lazy var emailTextField: UITextField = UITextField(frame: .zero)
     lazy var passwordField: UITextField = UITextField(frame: .zero)
     lazy var confirmPasswordField: UITextField = UITextField(frame: .zero)
+    lazy var userNameTextField: UITextField = UITextField(frame: .zero)
     lazy var scrollView = UIScrollView(frame: .zero)
     lazy var errorLabel: UILabel = UILabel(frame: .zero)
     lazy var registerButton: UIButton = UIButton(frame: .zero)
@@ -35,7 +36,10 @@ class RegisterView: UIViewController, UITextFieldDelegate {
             email != "", password != "", confirmPassword != "" else {
                 return true
         }
-        presenter?.registerUser(email: email, password: password, confirmPassword: confirmPassword)
+        presenter?.registerUser(email: email,
+                                password: password,
+                                confirmPassword: confirmPassword,
+                                userName: userNameTextField.text)
         return false
     }
     
@@ -64,7 +68,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         
         headerLabel.text = "register.label.header.title".localized()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.accessibilityIdentifier = "headerLabel"
+        headerLabel.accessibilityIdentifier = "errorLabel"
         style.baseStyle.style(title: headerLabel)
         scrollView.addSubview(headerLabel)
 
@@ -91,6 +95,14 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         confirmPasswordField.accessibilityIdentifier = "confirmPasswordField"
         style.baseStyle.style(input: confirmPasswordField)
         scrollView.addSubview(confirmPasswordField)
+        
+        userNameTextField.placeholder = "register.textfield.username.title".localized()
+        userNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        userNameTextField.isSecureTextEntry = false
+        userNameTextField.delegate = self
+        userNameTextField.accessibilityIdentifier = "userNameTextField"
+        style.baseStyle.style(input: userNameTextField)
+        scrollView.addSubview(userNameTextField)
         
         errorLabel.text = ""
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +131,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
             headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
-            headerImageView.heightAnchor.constraint(equalToConstant: 200),
+            headerImageView.heightAnchor.constraint(equalToConstant: 250),
             headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
             headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
@@ -139,9 +151,13 @@ class RegisterView: UIViewController, UITextFieldDelegate {
             confirmPasswordField.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor),
             confirmPasswordField.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor),
             
-            errorLabel.leadingAnchor.constraint(equalTo: confirmPasswordField.leadingAnchor),
-            errorLabel.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor),
-            errorLabel.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 5),
+            userNameTextField.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 10),
+            userNameTextField.leadingAnchor.constraint(equalTo: confirmPasswordField.leadingAnchor),
+            userNameTextField.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor),
+            
+            errorLabel.leadingAnchor.constraint(equalTo: userNameTextField.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: userNameTextField.trailingAnchor),
+            errorLabel.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 5),
             
             registerButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: generalSpacing),
             registerButton.leadingAnchor.constraint(equalTo: errorLabel.leadingAnchor),
@@ -179,6 +195,10 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         guard isFieldsAreEmpty else {
             dimissKeyboard()
             return true
+        }
+        if emailTextField.text == "" {
+            emailTextField.becomeFirstResponder()
+            return false
         }
         if passwordField.text == "" {
             passwordField.becomeFirstResponder()

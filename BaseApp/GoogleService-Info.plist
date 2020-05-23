@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>850776697409-vv27pssctruupukn3ou72mbd5qeshea0.apps.googleusercontent.com</string>
+	<string>978997080941-b0p3gv42ronue71igd32rfvodo70f07b.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.850776697409-vv27pssctruupukn3ou72mbd5qeshea0</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>850776697409-m8uas3cu135ffl1tt02qb63io9ebiouq.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.978997080941-b0p3gv42ronue71igd32rfvodo70f07b</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCJADykr6jqvw9ICaVWU7jjqqx9eOsN1HA</string>
+	<string>AIzaSyBF7eBpuVtuxSkiLTZQdVGlSCeAgzt2DYc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>850776697409</string>
+	<string>978997080941</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ras.GiftHunter</string>
+	<string>com.ras.baseapp</string>
 	<key>PROJECT_ID</key>
-	<string>gifthunter-47180</string>
+	<string>baseapp-2f3bd</string>
 	<key>STORAGE_BUCKET</key>
-	<string>gifthunter-47180.appspot.com</string>
+	<string>baseapp-2f3bd.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:850776697409:ios:1fce7fa70cb1823b</string>
+	<string>1:978997080941:ios:7bda7b35add456e9fc2064</string>
 	<key>DATABASE_URL</key>
-	<string>https://gifthunter-47180.firebaseio.com</string>
+	<string>https://baseapp-2f3bd.firebaseio.com</string>
 </dict>
 </plist>

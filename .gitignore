@@ -2,7 +2,6 @@
 .DS_Store
 *.pbxuser
 xcuserdata
-profile
 DerivedData
 *.xccheckout
 *.xcscmblueprint

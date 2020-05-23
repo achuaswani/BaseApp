@@ -12,18 +12,14 @@ import UIKit
 protocol SettingsViewType {
     func routeToLogin()
     func displayErrorPopup()
+    func displayAboutScreen()
+    func displayProfileScreen(with userdata: UserDataEntity)
 }
 class SettingsView: UIViewController {
     // MARK: Properties
     var presenter: SettingsPresenterToViewType?
     var style: SettingsStyleType!
     let tableView = UITableView()
-    var settingsItems: [String] {
-        guard let presenter = presenter else {
-            return []
-        }
-        return presenter.getSettingsItems()
-    }
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,19 +58,17 @@ class SettingsView: UIViewController {
 extension SettingsView: SettingsViewType, UITableViewDelegate, UITableViewDataSource {
      
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsItems.count
+        return presenter?.settingsItems.count ?? 0
     }
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = settingsItems[indexPath.row]
+        cell.textLabel?.text = presenter?.settingsItems[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if settingsItems[indexPath.row] == "dashboard.button.logout.title".localized() {
-            presenter?.logoutUser()
-        }
+        presenter?.selectedRow(at: indexPath.row)
     }
     
     func routeToLogin() {
@@ -89,5 +83,15 @@ extension SettingsView: SettingsViewType, UITableViewDelegate, UITableViewDataSo
           )
         )
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func displayAboutScreen() {
+        let aboutScreen = AboutRouter.createModule()
+        self.navigationController?.pushViewController(aboutScreen,animated: true)
+    }
+    
+    func displayProfileScreen(with userdata: UserDataEntity) {
+        let profile = ProfileRouter.createModule(with: userdata)
+        self.navigationController?.pushViewController(profile,animated: true)
     }
 }

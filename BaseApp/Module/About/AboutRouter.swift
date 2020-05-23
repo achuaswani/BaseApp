@@ -1,31 +1,31 @@
 //
-//  SettingsRouter.swift
+//  AboutRouter.swift
 //  BaseApp
 //
-//  Created by Aswani G on 5/15/20.
+//  Created by Aswani G on 5/18/20.
 //  Copyright © 2020 RAS. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-protocol SettingsRouterToPresenterType: class {
+protocol AboutRouterToPresenterType: class {
     // TODO: Declare wireframe methods
 }
-class SettingsRouter: SettingsRouterToPresenterType {
+class AboutRouter: AboutRouterToPresenterType {
 
     // MARK: Properties
-    typealias Presenter = SettingsPresenter
-    typealias View =  SettingsView
-    typealias Style = SettingsStyle
-    typealias Router = SettingsRouter
-    typealias Interactor = SettingsInteractor
-    typealias Service = SettingsService
+    typealias Presenter = AboutPresenter
+    typealias View =  AboutView
+    typealias Style = AboutStyle
+    typealias Router = AboutRouter
+    typealias Interactor = AboutInteractor
+    typealias Service = AboutService
 
-    static func createModule(with userdata: UserDataEntity) -> SettingsView {
+    static func createModule() -> AboutView {
         let viewController = View()
         let style = Style()
-        let presenter = Presenter(userData: userdata)
+        let presenter = Presenter()
         let router = Router()
         let interactor = Interactor()
         let service = Service()

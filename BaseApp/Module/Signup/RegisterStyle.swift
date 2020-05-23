@@ -13,5 +13,5 @@ protocol RegisterStyleType {
    var baseStyle: BaseStyle { get }
 }
 class RegisterStyle: RegisterStyleType {
-    let baseStyle = BaseStyle()
+    var baseStyle = BaseStyle()
 }

@@ -13,5 +13,5 @@ protocol ___VARIABLE_ModuleName___StyleType {
      var baseStyle: BaseStyle { get }
 }
 class ___VARIABLE_ModuleName___Style: ___VARIABLE_ModuleName___StyleType {
-     var baseStyle: BaseStyle()
+     var baseStyle = BaseStyle()
 }

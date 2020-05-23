@@ -17,18 +17,28 @@ protocol SettingsPresenterToRouterType: class {
 }
 
 protocol SettingsPresenterToViewType: class {
+    var settingsItems: [String] { get }
     func start()
     func logoutUser()
-    func getSettingsItems() -> [String]
+    func selectedRow(at index: Int)
 }
 
 class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToRouterType, SettingsPresenterToViewType {
-
     // MARK: Properties
 
     weak var view: SettingsView?
     var router: SettingsRouter?
     var interactor: SettingsInteractor?
+    var userData: UserDataEntity
+    var settingsItems: [String] {
+        return ["settings.list.item.profile".localized(),
+                   "settings.list.item.about".localized(),
+                   "settings.list.item.logout".localized()]
+    }
+    
+    init(userData: UserDataEntity) {
+        self.userData = userData
+    }
     
     func start(){
 
@@ -45,9 +55,13 @@ class SettingsPresenter: SettingsPresenterToInteractorType, SettingsPresenterToR
         }
     }
     
-    func getSettingsItems() -> [String] {
-         return ["settings.button.logout.profile".localized(),
-                "settings.button.logout.about".localized(),
-                 "settings.button.logout.title".localized()]
+    func selectedRow(at index: Int) {
+        if settingsItems[index] == "settings.list.item.profile".localized() {
+            view?.displayProfileScreen(with: userData)
+        } else if settingsItems[index] == "settings.list.item.about".localized() {
+            view?.displayAboutScreen()
+        } else if settingsItems[index] == "settings.list.item.logout".localized() {
+           logoutUser()
+        }
     }
 }

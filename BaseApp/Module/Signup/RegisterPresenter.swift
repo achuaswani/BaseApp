@@ -18,7 +18,7 @@ protocol RegisterPresenterToRouterType: class {
 
 protocol RegisterPresenterToViewType: class {
     func start()
-    func registerUser(email: String, password: String, confirmPassword: String)
+    func registerUser(email: String, password: String, confirmPassword: String, userName: String?)
 }
 
 class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToRouterType, RegisterPresenterToViewType {
@@ -33,7 +33,7 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
 
     }
     
-    func registerUser(email: String, password: String, confirmPassword: String) {
+    func registerUser(email: String, password: String, confirmPassword: String, userName: String?) {
         guard password == confirmPassword else {
             view?.display(errorMessage: "register.label.confirm.password.error.message".localized())
             return
@@ -44,17 +44,12 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
             return
         }
         
-        guard password.count >= 8  else {
-            view?.display(errorMessage: "login.label.password.validation.error.message".localized())
-            return
-        }
-        
         guard password.count >= 8 else {
             view?.display(errorMessage: "login.label.password.min.error.message".localized())
             return
         }
         
-        interactor?.registerUser(email: email, password: email) { [weak self] user, error in
+        interactor?.registerUser(email: email, password: email, userName: userName) { [weak self] user, error in
             guard let self = self else { return }
             guard let userData = user else {
                 if let error = error {
@@ -64,6 +59,7 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
                 }
                 return
             }
+            userData.userName = userName
             self.view?.routeToDashboard(with: userData)
         }
         

@@ -88,7 +88,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         
         errorLabel.text = ""
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.accessibilityIdentifier = "headerLabel"
+        errorLabel.accessibilityIdentifier = "errorLabel"
         style.baseStyle.style(error: errorLabel)
         scrollView.addSubview(errorLabel)
         
@@ -120,7 +120,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
             headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
-            headerImageView.heightAnchor.constraint(equalToConstant: 200),
+            headerImageView.heightAnchor.constraint(equalToConstant: 250),
             headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
             headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             

@@ -18,7 +18,7 @@ protocol DashboardPresenterToRouterType: class {
 
 protocol DashboardPresenterToViewType: class {
     func start()
-    
+    var userData: UserDataEntity { get }
 }
 
 class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenterToRouterType, DashboardPresenterToViewType {
@@ -33,7 +33,10 @@ class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenter
         self.userData = userData
     }
     func start() {
-        guard let displayName = userData.userName else { return }
-        view?.display(title: "dashboard.header.welcome.title".localized(with: displayName))
+        var welcomeText = "dashboard.header.welcome.title".localized()
+        if let displayName = userData.userName {
+            welcomeText = "\(welcomeText) \(displayName)"
+        }
+        view?.display(title: welcomeText)
     }
 }

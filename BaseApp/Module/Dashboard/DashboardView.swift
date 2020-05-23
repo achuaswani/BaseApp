@@ -57,18 +57,28 @@ class DashboardView: UIViewController {
     
     private func setupLayout() {
         let margins = view.layoutMarginsGuide
+        let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 50
         NSLayoutConstraint.activate([
+          scrollView.topAnchor.constraint(equalTo: margins.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+           
+            headerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            headerLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            headerLabel.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: generalSpacing)
         ])
     }
     
     private func routeToSettings() {
-        let settingsRouter = SettingsRouter.createModule()
+        guard let presenter = presenter else { return }
+        let settingsRouter = SettingsRouter.createModule(with: presenter.userData)
         self.navigationController?.pushViewController(settingsRouter,animated: true)
     }
 }
 
 extension DashboardView: DashboardViewType {
     func display(title: String) {
-        
+        headerLabel.text = title
     }
 }

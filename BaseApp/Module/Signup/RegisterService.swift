@@ -10,6 +10,7 @@ import Foundation
 
 protocol RegisterServiceType {
     func registerUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) -> ())
+    func updateUserDetails(userName: String?, profilePicture: URL?, closure: @escaping (Error?) -> ())
 }
 class RegisterService: RegisterServiceType {
     func registerUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) -> ()) {
@@ -19,10 +20,14 @@ class RegisterService: RegisterServiceType {
               return
             }
             let userData = UserDataEntity(userId: user.providerID,
-                            emailId: user.email,
+                            emailId: email,
                             photoURL: user.photoURL,
                             userName: user.displayName)
             closure(userData, nil)
         }
+    }
+    
+    func updateUserDetails(userName: String?, profilePicture: URL?, closure: @escaping (Error?) -> ()) {
+        FBAuth().updateUserDetails(userName: userName, profilePicture: profilePicture, closure: closure)
     }
 }
