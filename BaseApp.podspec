@@ -31,6 +31,8 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/achuaswani/BaseApp.git", :tag => "#{spec.version}" }
   spec.dependency 'Fabric', '~> 1.10.2'
   spec.dependency  'Crashlytics', '~> 3.14.0'
+  spec.static_framework = true
+  
   # Pod for Google Analytics
   spec.dependency  'Firebase/Firestore'
   spec.dependency  'Firebase/Analytics'
