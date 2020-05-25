@@ -8,17 +8,16 @@
 
 import UIKit
 import Firebase
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func initializeRealm(){
-        let realm = try! Realm()
-        guard realm.isEmpty else { return }
-    }
+//    func initializeRealm(){
+//        let realm = try! Realm()
+//        guard realm.isEmpty else { return }
+//    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,7 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         db.settings = settings
 
         //Realm
-        initializeRealm()
+        //initializeRealm()
+        
+        //Initiate language
+        let locale = LocalizableLanguage(rawValue: Locale.current.languageCode!)
+        LanguageManager().setCurrentLanguage(to: locale ?? .ml)
 
         let login = RootViewController()
         let navigationController = UINavigationController()
@@ -41,6 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible() // or you can use self.window?.isHidden = true
+        
+        /*
+         //find all font from Xcode
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                   print("== \(names)")
+            }
+        }*/
 
         return true
     }

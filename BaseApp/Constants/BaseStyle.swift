@@ -1,74 +1,69 @@
 //
-//  Style.swift
+//  BaseStyle.swift
 //  BaseApp
 //
-//  Created by Aswani Gangadharan on 11/19/19.
-//  Copyright © 2019 RAS. All rights reserved.
+//  Created by Aswani G on 5/12/20.
+//  Copyright © 2020 RAS. All rights reserved.
 //
 
 import UIKit
-protocol BaseStyle {
-    func titleView(title: String, subtitle: String?) -> UIView
 
-    func barButton(title: String, isLeftButton: Bool) -> UIBarButtonItem
-
-    func backButton(target: AnyObject, action: Selector) -> UIBarButtonItem
-
-    func closeButton(target: AnyObject, action: Selector) -> UIBarButtonItem
-
-    func button() -> UIButton
-
-    func primaryButton() -> UIButton
-
-    func secondaryButton() -> UIButton
+protocol  BaseStyleType{
+    var backgroundColor: UIColor { get }
+    func style(input: UITextField)
+    func style(title: UILabel)
+    func style(error: UILabel)
+    func style(button: UIButton)
+    func style(buttonLink: UIButton)
 }
 
-class Style {
-    enum TextStyle {
-        case navigationBar
-        case title
-        case subtitle
-        case body
-        case button
+class BaseStyle: BaseStyleType {
+    let font = FontStyle()
+    var backgroundColor: UIColor {
+        return .white
     }
-
-    struct TextAttributes {
-        let font: UIFont
-        let color: UIColor
-        let backgroundColor: UIColor?
-
-        init(font: UIFont, color: UIColor, backgroundColor: UIColor? = nil) {
-            self.font = font
-            self.color = color
-            self.backgroundColor = backgroundColor
-        }
+    
+    func style(input: UITextField) {
+        input.backgroundColor = .clear
+        input.textColor = .black
+        input.borderStyle = .roundedRect
+        input.autocapitalizationType = .none
+        input.autocorrectionType = .no
+        input.textAlignment = .left
+        input.font = font.placeholder
     }
-
-    // MARK: - General Properties
-    let backgroundColor: UIColor
-    let preferredStatusBarStyle: UIStatusBarStyle
-
-    let attributesForStyle: (_ style: TextStyle) -> TextAttributes
-
-    init(backgroundColor: UIColor,
-         preferredStatusBarStyle: UIStatusBarStyle = .default,
-         attributesForStyle: @escaping (_ style: TextStyle) -> TextAttributes)
-    {
-        self.backgroundColor = backgroundColor
-        self.preferredStatusBarStyle = preferredStatusBarStyle
-        self.attributesForStyle = attributesForStyle
+    
+    func style(title: UILabel) {
+        title.textAlignment = .center
+        title.numberOfLines = 1
+        title.textColor = .black
+        title.font = font.title
     }
-
-    // MARK: - Convenience Getters
-    func font(for style: TextStyle) -> UIFont {
-        return attributesForStyle(style).font
+    
+    func style(header1: UILabel) {
+        header1.textAlignment = .left
+        header1.numberOfLines = 1
+        header1.textColor = .black
+        header1.font = font.header1
     }
-
-    func color(for style: TextStyle) -> UIColor {
-        return attributesForStyle(style).color
+    
+    func style(error: UILabel) {
+        error.textAlignment = .left
+        error.numberOfLines = 1
+        error.textColor = .red
+        error.font = font.errorTitle
     }
-
-    func backgroundColor(for style: TextStyle) -> UIColor? {
-        return attributesForStyle(style).backgroundColor
+    
+    func style(button: UIButton) {
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.titleLabel?.font = font.buttonTitle
+    }
+    
+    func style(buttonLink: UIButton) {
+        buttonLink.backgroundColor = .clear
+        buttonLink.setTitleColor(UIColor.blue, for: .normal)
+        buttonLink.titleLabel?.font = font.buttonTitle
     }
 }

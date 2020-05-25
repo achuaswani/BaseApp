@@ -10,9 +10,8 @@ import UIKit
 import Firebase
 
 class RootViewController: UIViewController {
-   
     var handle: AuthStateDidChangeListenerHandle?
-
+    
     override func loadView() {
 
         view = UIView(frame: .zero)
@@ -20,18 +19,23 @@ class RootViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user == nil {
-                let loginRouter = LoginRouter.createModule()
-                self.navigationController?.pushViewController(loginRouter,animated: true)
+        FBAuth().checkForUserLoggedIn(handle: &handle) { user in
+            if let user = user, let email = user.email {
+                let userData = UserDataEntity(userId: user.providerID,
+                                             emailId: email,
+                                             photoURL: user.photoURL,
+                                             userName: user.displayName)
+                let dashboardRouter = DashboardRouter.createModule(with: userData )
+                self.navigationController?.pushViewController(dashboardRouter,animated: false)
             } else {
-                let dashboardRouter = DashboardRouter.createModule()
-                self.navigationController?.pushViewController(dashboardRouter,animated: true)
+               let loginRouter = LoginRouter.createModule()
+               self.navigationController?.pushViewController(loginRouter,animated: false)
             }
         }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        Auth.auth().removeStateDidChangeListener(handle!)
+        guard let authHandle = handle else { return }
+        FBAuth().removeState(handle: authHandle)
     }
 }

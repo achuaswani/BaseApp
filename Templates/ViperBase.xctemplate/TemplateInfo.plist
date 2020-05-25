@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>Base Architecture for the project</string>
+	<key>Summary</key>
+	<string>Viper architecture design pattern for the project</string>
+	<key>Icon</key>
+	<string>TemplateIcon</string>
+	<key>Title</key>
+	<string>VIPER</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE___ModuleName__</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>Name of the module</string>
+			<key>Identifier</key>
+			<string>ModuleName</string>
+			<key>Name</key>
+			<string>New Module Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+</dict>
+</plist>
