@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 class FBAuth {
     let firebaseAuth = Auth.auth()

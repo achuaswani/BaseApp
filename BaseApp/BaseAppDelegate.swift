@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class BaseAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -38,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locale = LocalizableLanguage(rawValue: Locale.current.languageCode!)
         LanguageManager().setCurrentLanguage(to: locale ?? .ml)
 
-        let login = RootViewController()
+        let login = BaseRootViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [login]
         window = UIWindow(frame: UIScreen.main.bounds)

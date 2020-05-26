@@ -122,36 +122,36 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     
     private func setupLayout() {
         let margins = view.layoutMarginsGuide
-        let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 30
-        let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 40
+        let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 10 : 20
+        let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 5 : 10
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: margins.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
-            headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: topSpacing),
+            headerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 5),
             headerImageView.heightAnchor.constraint(equalToConstant: 250),
             headerImageView.widthAnchor.constraint(equalTo: margins.widthAnchor),
             headerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
             headerLabel.leadingAnchor.constraint(equalTo: headerImageView.leadingAnchor),
             headerLabel.trailingAnchor.constraint(equalTo: headerImageView.trailingAnchor),
-            headerLabel.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: generalSpacing),
+            headerLabel.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: topSpacing),
             
             emailTextField.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: generalSpacing),
             emailTextField.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
             
-            passwordField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
+            passwordField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: generalSpacing),
             passwordField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             passwordField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            confirmPasswordField.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 10),
+            confirmPasswordField.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: generalSpacing),
             confirmPasswordField.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor),
             confirmPasswordField.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor),
             
-            userNameTextField.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 10),
+            userNameTextField.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: generalSpacing),
             userNameTextField.leadingAnchor.constraint(equalTo: confirmPasswordField.leadingAnchor),
             userNameTextField.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor),
             
@@ -159,7 +159,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
             errorLabel.trailingAnchor.constraint(equalTo: userNameTextField.trailingAnchor),
             errorLabel.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 5),
             
-            registerButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: generalSpacing),
+            registerButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 5),
             registerButton.leadingAnchor.constraint(equalTo: errorLabel.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: errorLabel.trailingAnchor),
             

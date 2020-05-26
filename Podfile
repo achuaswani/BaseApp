@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+  platform :ios, '9.0'
 
 target 'BaseApp' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,9 +8,10 @@ target 'BaseApp' do
   # Pods for BaseApp
 
   # Pods for Crash reporting
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.14.0'
+  pod 'Fabric'
+  pod 'Crashlytics'
   # Pod for Google Analytics
+  pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
@@ -22,6 +23,7 @@ target 'BaseApp' do
   end
 
   target 'BaseAppUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
 

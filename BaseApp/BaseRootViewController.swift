@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
+import FirebaseAuth
 
-class RootViewController: UIViewController {
+class BaseRootViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     
     override func loadView() {

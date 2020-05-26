@@ -34,12 +34,13 @@
 "settings.list.item.about" = "About";
 
 //profile
-"profile.label.reset.emailid.title" = "Reset Emailid";
+"profile.button.update.user.name.title" = "Reset User Name";
+"profile.label.reset.emailid.title" = "Reset email id";
 "profile.label.reset.password.title" = "Reset password";
 "profile.textfield.current.password.title" = "Enter current password";
 "profile.textfield.new.password.title" = "Enter new password";
 "profile.button.update.display.name.title" = "Update display name";
-"profile.button.update.email.id.title" = "Update emailid";
+"profile.button.update.email.id.title" = "Update email id";
 "profile.button.update.password.title" = "Update password";
 "profile.label.password.validation.error.message" = "Incorrect Password";
 "profile.label.password.same.error.message" = "No change in password";

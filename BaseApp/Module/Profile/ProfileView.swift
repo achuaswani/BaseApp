@@ -57,7 +57,7 @@ class ProfileView: UIViewController, UITextFieldDelegate {
         profileImageView.accessibilityIdentifier = "profileImageView"
         scrollView.addSubview(profileImageView)
         
-        updateUserNameLabel.text = "profile.button.update.user.data.title".localized()
+        updateUserNameLabel.text = "profile.button.update.user.name.title".localized()
         updateUserNameLabel.translatesAutoresizingMaskIntoConstraints = false
         updateUserNameLabel.accessibilityIdentifier = "updateUserNameLabel"
         style.baseStyle.style(header1: updateUserNameLabel)
@@ -146,8 +146,8 @@ class ProfileView: UIViewController, UITextFieldDelegate {
     
     private func setupLayout() {
         let margins = view.layoutMarginsGuide
-        let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 30
-        let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 20 : 40
+        let topSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 10 : 20
+        let generalSpacing:CGFloat = UIScreen.main.bounds.height < 570 ? 5 : 10
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: margins.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
@@ -163,39 +163,39 @@ class ProfileView: UIViewController, UITextFieldDelegate {
             updateUserNameLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
             updateUserNameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: generalSpacing),
            
-            userNameTextField.topAnchor.constraint(equalTo: updateUserNameLabel.bottomAnchor, constant: 10),
+            userNameTextField.topAnchor.constraint(equalTo: updateUserNameLabel.bottomAnchor, constant: generalSpacing),
             userNameTextField.leadingAnchor.constraint(equalTo: updateUserNameLabel.leadingAnchor),
             userNameTextField.trailingAnchor.constraint(equalTo: updateUserNameLabel.trailingAnchor),
            
-            updateUserNameButton.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 10),
+            updateUserNameButton.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: generalSpacing),
             updateUserNameButton.leadingAnchor.constraint(equalTo: userNameTextField.leadingAnchor),
             updateUserNameButton.trailingAnchor.constraint(equalTo: userNameTextField.trailingAnchor),
             
             resetEmailIdLabel.leadingAnchor.constraint(equalTo: updateUserNameButton.leadingAnchor),
             resetEmailIdLabel.trailingAnchor.constraint(equalTo: updateUserNameButton.trailingAnchor),
-            resetEmailIdLabel.topAnchor.constraint(equalTo: updateUserNameButton.bottomAnchor, constant: 10),
+            resetEmailIdLabel.topAnchor.constraint(equalTo: updateUserNameButton.bottomAnchor, constant: generalSpacing),
             
             emailIdTextField.leadingAnchor.constraint(equalTo: resetEmailIdLabel.leadingAnchor),
             emailIdTextField.trailingAnchor.constraint(equalTo: resetEmailIdLabel.trailingAnchor),
-            emailIdTextField.topAnchor.constraint(equalTo: resetEmailIdLabel.bottomAnchor, constant: 10),
+            emailIdTextField.topAnchor.constraint(equalTo: resetEmailIdLabel.bottomAnchor, constant: generalSpacing),
             
             currentPasswordField.leadingAnchor.constraint(equalTo: emailIdTextField.leadingAnchor),
             currentPasswordField.trailingAnchor.constraint(equalTo: emailIdTextField.trailingAnchor),
-            currentPasswordField.topAnchor.constraint(equalTo: emailIdTextField.bottomAnchor, constant: 10),
+            currentPasswordField.topAnchor.constraint(equalTo: emailIdTextField.bottomAnchor, constant: generalSpacing),
             
-            updateEmailIdButton.topAnchor.constraint(equalTo: currentPasswordField.bottomAnchor, constant: 10),
+            updateEmailIdButton.topAnchor.constraint(equalTo: currentPasswordField.bottomAnchor, constant: generalSpacing),
             updateEmailIdButton.leadingAnchor.constraint(equalTo: currentPasswordField.leadingAnchor),
             updateEmailIdButton.trailingAnchor.constraint(equalTo: currentPasswordField.trailingAnchor),
             
             resetPasswordLabel.leadingAnchor.constraint(equalTo: updateEmailIdButton.leadingAnchor),
             resetPasswordLabel.trailingAnchor.constraint(equalTo: updateEmailIdButton.trailingAnchor),
-            resetPasswordLabel.topAnchor.constraint(equalTo: updateEmailIdButton.bottomAnchor, constant: 10),
+            resetPasswordLabel.topAnchor.constraint(equalTo: updateEmailIdButton.bottomAnchor, constant: generalSpacing),
             
-            newPasswordField.topAnchor.constraint(equalTo: resetPasswordLabel.bottomAnchor, constant: 10),
+            newPasswordField.topAnchor.constraint(equalTo: resetPasswordLabel.bottomAnchor, constant: generalSpacing),
             newPasswordField.leadingAnchor.constraint(equalTo: resetPasswordLabel.leadingAnchor),
             newPasswordField.trailingAnchor.constraint(equalTo: resetPasswordLabel.trailingAnchor),
             
-            confirmPasswordField.topAnchor.constraint(equalTo: newPasswordField.bottomAnchor, constant: 10),
+            confirmPasswordField.topAnchor.constraint(equalTo: newPasswordField.bottomAnchor, constant: generalSpacing),
             confirmPasswordField.leadingAnchor.constraint(equalTo: newPasswordField.leadingAnchor),
             confirmPasswordField.trailingAnchor.constraint(equalTo: newPasswordField.trailingAnchor),
             
@@ -203,7 +203,7 @@ class ProfileView: UIViewController, UITextFieldDelegate {
             errorLabel.trailingAnchor.constraint(equalTo: confirmPasswordField.trailingAnchor),
             errorLabel.topAnchor.constraint(equalTo: confirmPasswordField.bottomAnchor, constant: 5),
             
-            updatePasswordButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 10),
+            updatePasswordButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 5),
             updatePasswordButton.leadingAnchor.constraint(equalTo: errorLabel.leadingAnchor),
             updatePasswordButton.trailingAnchor.constraint(equalTo: errorLabel.trailingAnchor)
         ])
