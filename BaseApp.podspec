@@ -20,6 +20,8 @@ Pod::Spec.new do |spec|
   spec.dependency  'Firebase/Auth'
   spec.dependency  'SwiftyJSON'
   spec.dependency  'Alamofire'
-  spec.source_files  = "BaseApp", "BaseApp/**/*.{swift,strings}"
+  spec.source_files  = "BaseApp", "BaseApp/**/*.{swift}"
+  spec.resource_bundle = { 'BaseApp' => ['BaseApp/**/*.{strings}'] }
   spec.resources = "BaseApp/**/*.{xcassets}"
 end
+

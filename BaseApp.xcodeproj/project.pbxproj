@@ -59,7 +59,7 @@
 		8390CCE223E0C46400E0DBBD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8390CCDB23E0C46400E0DBBD /* LoginPresenter.swift */; };
 		83AA8FB8238381130061782A /* BaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA8FB7238381130061782A /* BaseAppDelegate.swift */; };
 		83AA8FBA238381130061782A /* BaseRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA8FB9238381130061782A /* BaseRootViewController.swift */; };
-		83AA8FBF238381150061782A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AA8FBE238381150061782A /* Assets.xcassets */; };
+		83AA8FBF238381150061782A /* BaseAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AA8FBE238381150061782A /* BaseAssets.xcassets */; };
 		83AA8FC2238381150061782A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AA8FC0238381150061782A /* LaunchScreen.storyboard */; };
 		83AA8FCD238381150061782A /* BaseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA8FCC238381150061782A /* BaseAppTests.swift */; };
 		83AA8FD8238381150061782A /* BaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA8FD7238381150061782A /* BaseAppUITests.swift */; };
@@ -142,7 +142,7 @@
 		83AA8FB4238381130061782A /* BaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AA8FB7238381130061782A /* BaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppDelegate.swift; sourceTree = "<group>"; };
 		83AA8FB9238381130061782A /* BaseRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRootViewController.swift; sourceTree = "<group>"; };
-		83AA8FBE238381150061782A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83AA8FBE238381150061782A /* BaseAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BaseAssets.xcassets; sourceTree = "<group>"; };
 		83AA8FC1238381150061782A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83AA8FC3238381150061782A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83AA8FC8238381150061782A /* BaseAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,8 +215,6 @@
 			children = (
 				5B72FF2A24645ED2002FF7F1 /* en.strings */,
 				5B72FF3524647187002FF7F1 /* ml.strings */,
-				5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */,
-				5B72FF3924647553002FF7F1 /* LanguageManager.swift */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -224,6 +222,8 @@
 		5B72FF3B2468A65D002FF7F1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */,
+				5B72FF3924647553002FF7F1 /* LanguageManager.swift */,
 				5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */,
 				5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */,
 				5B860AC62471D6780058358D /* AuthenticationError.swift */,
@@ -348,7 +348,7 @@
 				83AA8FE52383D00E0061782A /* Constants */,
 				83AA8FB7238381130061782A /* BaseAppDelegate.swift */,
 				83AA8FB9238381130061782A /* BaseRootViewController.swift */,
-				83AA8FBE238381150061782A /* Assets.xcassets */,
+				83AA8FBE238381150061782A /* BaseAssets.xcassets */,
 				83AA8FC0238381150061782A /* LaunchScreen.storyboard */,
 				83AA8FC3238381150061782A /* Info.plist */,
 				5B860AC8247338C00058358D /* GoogleService-Info.plist */,
@@ -514,7 +514,7 @@
 				83AA8FC2238381150061782A /* LaunchScreen.storyboard in Resources */,
 				5B72FF2C24645ED2002FF7F1 /* en.strings in Resources */,
 				5B72FF3624647187002FF7F1 /* ml.strings in Resources */,
-				83AA8FBF238381150061782A /* Assets.xcassets in Resources */,
+				83AA8FBF238381150061782A /* BaseAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
