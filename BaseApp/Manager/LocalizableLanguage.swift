@@ -57,18 +57,14 @@ extension LocalizableLanguage {
 extension String {
     public func localized() -> String {
         let languageManager = LanguageManager.shared
+        let bundle: Bundle = .main
         if let currentLanguage = languageManager.getCurrentLanguage() {
-            if let url = Bundle.main.url(forResource: "\(currentLanguage.rawValue)",
-                withExtension: "strings"),
-                let stringDict = NSDictionary(contentsOf: url) as? [String: String],
-                let localizedString = stringDict[self] {
-                 return localizedString
-                } else {
-                 return self
+            if let path = bundle.path(forResource: currentLanguage.rawValue, ofType: "lproj"),
+                let bundle = Bundle(path: path) {
+                 return bundle.localizedString(forKey: self, value: nil, table: nil)
                 }
-        } else {
-            return self
         }
+        return self
     }
     
     public func localized(with element: String) -> String {
