@@ -55,7 +55,7 @@ extension LocalizableLanguage {
 }
 
 extension String {
-    func localized() -> String {
+    public func localized() -> String {
         let languageManager = LanguageManager.shared
         if let currentLanguage = languageManager.getCurrentLanguage() {
             if let url = Bundle.main.url(forResource: "\(currentLanguage.rawValue)",
