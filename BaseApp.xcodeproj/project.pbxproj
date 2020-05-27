@@ -222,9 +222,9 @@
 		5B72FF3B2468A65D002FF7F1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */,
 				5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */,
 				5B72FF3924647553002FF7F1 /* LanguageManager.swift */,
-				5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */,
 				5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */,
 				5B860AC62471D6780058358D /* AuthenticationError.swift */,
 			);
