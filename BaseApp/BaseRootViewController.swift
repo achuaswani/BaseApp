@@ -16,6 +16,7 @@ class BaseRootViewController: UIViewController {
     override func loadView() {
 
         view = UIView(frame: .zero)
+        view.accessibilityIdentifier = "RootViewController"
         view.backgroundColor = .white
     }
 

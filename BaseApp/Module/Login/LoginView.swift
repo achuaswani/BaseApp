@@ -57,6 +57,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
         view.addSubview(scrollView)
+        view.accessibilityIdentifier = "loginView"
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         headerImageView.image =  UIImage(named: "login")!

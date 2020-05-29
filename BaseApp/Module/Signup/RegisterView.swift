@@ -33,7 +33,8 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         guard let email = emailTextField.text,
             let password = passwordField.text,
             let confirmPassword = confirmPasswordField.text,
-            email != "", password != "", confirmPassword != "" else {
+            checkNotEmpty(value: email), checkNotEmpty(value:password),
+            checkNotEmpty(value: confirmPassword) else {
                 return true
         }
         presenter?.registerUser(email: email,
@@ -43,6 +44,12 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    public func checkNotEmpty(value: String) -> Bool {
+        if value == "" {
+            return false
+        }
+        return true
+    }
     // MARK: Lifecycle
 
     override func viewDidLoad() {
