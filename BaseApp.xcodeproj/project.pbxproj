@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B03C5CE2480A95800B0195E /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03C5CD2480A95800B0195E /* LoginScreen.swift */; };
+		5B03C5CF2480D05900B0195E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B860AC8247338C00058358D /* GoogleService-Info.plist */; };
 		5B28724A247ECD2200C836E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B287248247ECD2200C836E8 /* Localizable.strings */; };
 		5B5F039E2478E5020067A256 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03982478E5010067A256 /* ProfileService.swift */; };
 		5B5F039F2478E5020067A256 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03992478E5010067A256 /* ProfileInteractor.swift */; };
@@ -29,7 +30,6 @@
 		5B860ABE246F5C110058358D /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB8246F5C110058358D /* SettingsInteractor.swift */; };
 		5B860ABF246F5C110058358D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AB9246F5C110058358D /* SettingsPresenter.swift */; };
 		5B860AC72471D6780058358D /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AC62471D6780058358D /* AuthenticationError.swift */; };
-		5B860AC9247338C00058358D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B860AC8247338C00058358D /* GoogleService-Info.plist */; };
 		5B860ADE24734F110058358D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AD824734F110058358D /* AboutView.swift */; };
 		5B860ADF24734F110058358D /* AboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860AD924734F110058358D /* AboutRouter.swift */; };
 		5B860AE024734F110058358D /* AboutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B860ADA24734F110058358D /* AboutStyle.swift */; };
@@ -512,7 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B860AC9247338C00058358D /* GoogleService-Info.plist in Resources */,
+				5B03C5CF2480D05900B0195E /* GoogleService-Info.plist in Resources */,
 				5B28724A247ECD2200C836E8 /* Localizable.strings in Resources */,
 				83AA8FC2238381150061782A /* LaunchScreen.storyboard in Resources */,
 				83AA8FBF238381150061782A /* BaseAssets.xcassets in Resources */,

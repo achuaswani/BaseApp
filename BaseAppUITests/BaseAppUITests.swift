@@ -10,20 +10,23 @@ import XCTest
 
 class BaseAppUITests: XCTestCase {
     let loginScreen = LoginScreen()
+    var app: XCUIApplication!
     override func setUp() {
+        super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
+        app = XCUIApplication()
+        app.launch()
+        sleep(1)
     }
    
     override func tearDown() {
        super.tearDown()
+       app.terminate()
+       app = nil
     }
     
     func test_loginTest() {
-        XCUIDevice.shared.press(XCUIDevice.Button.home)
-        // To bring the app back
-        XCUIApplication().activate()
         loginScreen.loginTest()
-                XCTAssertEqual(loginScreen.getErrorDisplayed(), "")
+        XCTAssertEqual(loginScreen.getErrorDisplayed(), "All fields are mandatory.")
     }
 }

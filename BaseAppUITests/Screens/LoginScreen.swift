@@ -31,6 +31,6 @@ class LoginScreen: XCTest {
     }
     
     func getErrorDisplayed() -> String {
-        return errorLabel.value as! String
+        return errorLabel.label
     }
 }

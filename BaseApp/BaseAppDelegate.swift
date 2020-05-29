@@ -23,7 +23,11 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
     open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.setMinimumBackgroundFetchInterval(60)
-        FirebaseApp.configure()
+        if NSClassFromString("XCTest") != nil {
+            return true
+        } else {
+            FirebaseApp.configure()
+        }
         let settings = FirestoreSettings()
         settings.isPersistenceEnabled = true
         settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
