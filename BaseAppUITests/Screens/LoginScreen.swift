@@ -30,10 +30,7 @@ class LoginScreen: XCTest {
         login.tap()
     }
     
-    func isErrorDisplayed(error: String) -> Bool {
-        let player = errorLabel.staticTexts["\(error)"]
-        return (player.exists)
-        
+    func getErrorDisplayed() -> String {
+        return errorLabel.value as! String
     }
-    
 }

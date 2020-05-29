@@ -10,7 +10,6 @@ import XCTest
 
 class BaseAppUITests: XCTestCase {
     let loginScreen = LoginScreen()
-    
     override func setUp() {
         continueAfterFailure = false
         XCUIApplication().launch()
@@ -21,7 +20,10 @@ class BaseAppUITests: XCTestCase {
     }
     
     func test_loginTest() {
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        // To bring the app back
+        XCUIApplication().activate()
         loginScreen.loginTest()
-        XCTAssertTrue(loginScreen.isErrorDisplayed(error: "All fields are mandatory."))
+                XCTAssertEqual(loginScreen.getErrorDisplayed(), "")
     }
 }
