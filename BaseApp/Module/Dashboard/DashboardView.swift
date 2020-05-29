@@ -31,6 +31,7 @@ class DashboardView: UIViewController {
     override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
+        view.accessibilityIdentifier = "dashboard"
         let settingsButton = UIButton(type: .custom)
         settingsButton.setImage(UIImage(named: "icon-settings.png"), for: .normal)
         settingsButton.setTitleColor(settingsButton.tintColor, for: .normal)

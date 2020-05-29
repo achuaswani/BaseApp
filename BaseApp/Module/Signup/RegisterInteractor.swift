@@ -17,7 +17,7 @@ class RegisterInteractor: RegisterInteractorToPresenterType {
     var service: RegisterService?
     
     func registerUser(email: String, password: String, userName: String?, closure: @escaping (UserDataEntity?, Error?) -> ()) {
-        service?.registerUser(email: email, password: email) { [weak self] user, error in
+        service?.registerUser(email: email, password: password) { [weak self] user, error in
             guard let user = user else {
                 closure(nil, error)
                 return

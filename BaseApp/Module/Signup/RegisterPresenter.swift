@@ -49,7 +49,7 @@ class RegisterPresenter: RegisterPresenterToInteractorType, RegisterPresenterToR
             return
         }
         
-        interactor?.registerUser(email: email, password: email, userName: userName) { [weak self] user, error in
+        interactor?.registerUser(email: email, password: password, userName: userName) { [weak self] user, error in
             guard let self = self else { return }
             guard let userData = user else {
                 if let error = error {

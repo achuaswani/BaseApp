@@ -9,28 +9,34 @@
 import XCTest
 
 class LoginScreen: XCTest {
-    static let app = XCUIApplication()
-    private let collectionViews = app.collectionViews.cells.otherElements
-    private let emailTextField = app.textFields["emailTextField"]
-    private let passwordTextField = app.textFields["passwordField"]
-    private let errorLabel = app.staticTexts["errorLabel"]
-    private let login = app.buttons["Login"]
-    
+    let app = XCUIApplication()
+        
     func setEmailIdWith(_ name: String) {
+       let emailTextField = app.textFields["emailTextField"]
        emailTextField.tap()
        emailTextField.typeText(name)
     }
     
     func setPasswordWith(_ pwd: String) {
+       let passwordTextField = app.secureTextFields["passwordTextField"]
+       app.keyboards.buttons["return"].tap()
        passwordTextField.tap()
        passwordTextField.typeText(pwd)
     }
     
     func loginTest() {
+        let login = app.buttons["Login"]
         login.tap()
     }
     
     func getErrorDisplayed() -> String {
+        let errorLabel = app.staticTexts["errorLabel"]
         return errorLabel.label
+    }
+    
+    func loginSuccessCheck() -> Bool {
+        let dashBoardView = app.otherElements["dashboard"]
+        let dashBoardShown = dashBoardView.waitForExistence(timeout: 5)
+        return dashBoardShown
     }
 }

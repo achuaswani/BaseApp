@@ -22,7 +22,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     lazy var headerImageView = UIImageView(frame: .zero)
     lazy var headerLabel: UILabel = UILabel(frame: .zero)
     lazy var emailTextField: UITextField = UITextField(frame: .zero)
-    lazy var passwordField: UITextField = UITextField(frame: .zero)
+    lazy var passwordTextField: UITextField = UITextField(frame: .zero)
     lazy var scrollView = UIScrollView(frame: .zero)
     lazy var errorLabel: UILabel = UILabel(frame: .zero)
     lazy var loginButton: UIButton = UIButton(frame: .zero)
@@ -30,7 +30,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     private var isFieldsAreEmpty: Bool {
         errorLabel.text = ""
         guard let email = emailTextField.text,
-            let password = passwordField.text,
+            let password = passwordTextField.text,
             email != "", password != "" else {
                 return true
         }
@@ -44,7 +44,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.presenter?.start()
         self.emailTextField.delegate = self
-        self.passwordField.delegate = self
+        self.passwordTextField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -79,13 +79,14 @@ class LoginView: UIViewController, UITextFieldDelegate {
         style.baseStyle.style(input: emailTextField)
         scrollView.addSubview(emailTextField)
 
-        passwordField.placeholder = "login.textfield.password.title".localized()
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.isSecureTextEntry = true
-        passwordField.delegate = self
-        passwordField.accessibilityIdentifier = "passwordField"
-        style.baseStyle.style(input: passwordField)
-        scrollView.addSubview(passwordField)
+        passwordTextField.placeholder = "login.textfield.password.title".localized()
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.delegate = self
+        passwordTextField.isAccessibilityElement = true
+        passwordTextField.accessibilityIdentifier = "passwordTextField"
+        style.baseStyle.style(input: passwordTextField)
+        scrollView.addSubview(passwordTextField)
         
         errorLabel.text = ""
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -133,13 +134,13 @@ class LoginView: UIViewController, UITextFieldDelegate {
             emailTextField.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
             
-            passwordField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
-            passwordField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            passwordField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
+            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            errorLabel.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor),
-            errorLabel.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor),
-            errorLabel.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 5),
+            errorLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
+            errorLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5),
             
             loginButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: generalSpacing),
             loginButton.leadingAnchor.constraint(equalTo: errorLabel.leadingAnchor),
@@ -183,7 +184,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
             dimissKeyboard()
             return true
         }
-        passwordField.becomeFirstResponder()
+        passwordTextField.becomeFirstResponder()
         return false
     }
     

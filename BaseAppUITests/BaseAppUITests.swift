@@ -16,17 +16,25 @@ class BaseAppUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
-        sleep(1)
     }
    
     override func tearDown() {
        super.tearDown()
-       app.terminate()
-       app = nil
     }
     
-    func test_loginTest() {
+    func test_loginFailureTest() {
         loginScreen.loginTest()
         XCTAssertEqual(loginScreen.getErrorDisplayed(), "All fields are mandatory.")
+    }
+    
+    func test_loginSuccessTest() {
+        loginScreen.setEmailIdWith("test@gmail.com")
+        loginScreen.setPasswordWith("abcd1234")
+        loginScreen.loginTest()
+        XCTAssert(loginScreen.loginSuccessCheck())
+    }
+    
+    func check() {
+        
     }
 }
