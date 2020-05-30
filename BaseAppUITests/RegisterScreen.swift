@@ -37,7 +37,7 @@ class RegisterScreen: BaseAppUITests {
         app.keyboards.buttons["return"].tap()
         let displayName = app.textFields["userNameTextField"]
         displayName.tap()
-        displayName.typeText("test\(identifier)")
+        displayName.typeText("test")
         let registerButton = app.buttons["registerButton"]
         registerButton.tap()
         let dashBoardView = app.otherElements["dashboard"]
