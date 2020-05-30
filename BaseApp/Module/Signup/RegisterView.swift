@@ -65,6 +65,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
     override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
+        view.accessibilityIdentifier = "register"
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -75,7 +76,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         
         headerLabel.text = "register.label.header.title".localized()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.accessibilityIdentifier = "errorLabel"
+        headerLabel.accessibilityIdentifier = "registerLabel"
         style.baseStyle.style(title: headerLabel)
         scrollView.addSubview(headerLabel)
 
@@ -113,7 +114,7 @@ class RegisterView: UIViewController, UITextFieldDelegate {
         
         errorLabel.text = ""
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.accessibilityIdentifier = "headerLabel"
+        errorLabel.accessibilityIdentifier = "errorLabel"
         style.baseStyle.style(error: errorLabel)
         scrollView.addSubview(errorLabel)
 

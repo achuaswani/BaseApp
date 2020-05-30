@@ -13,12 +13,15 @@ class BaseAppUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        app.launchArguments.append("BaseAppUITest")
-        app.launch()
     }
    
     override func tearDown() {
-       app.terminate()
        super.tearDown()
     }
+    
+    func appLaunch() {
+        app.launchArguments.append("BaseAppUITest")
+        app.launch()
+    }
+    
 }

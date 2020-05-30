@@ -11,9 +11,11 @@ import XCTest
 class LoginScreen: BaseAppUITests {
     
     func test_loginFailureTest() {
+        appLaunch()
         let errorLabel = app.staticTexts["errorLabel"]
-        loginTap()
+        loginButtonTap()
         XCTAssertEqual(errorLabel.label, "All fields are mandatory.")
+        sleep(5)
     }
   
     func test_loginSuccessTest() {
@@ -21,8 +23,16 @@ class LoginScreen: BaseAppUITests {
         let dashBoardView = app.otherElements["dashboard"]
         setEmailIdWith("test@gmail.com")
         setPasswordWith("abcd1234")
-        loginTap()
+        loginButtonTap()
         XCTAssert(dashBoardView.waitForExistence(timeout: 5))
+        sleep(5)
+    }
+    
+    func test_registerOpenTest() {
+        appLaunch()
+        registerButtonTap()
+        let registerView = app.otherElements["register"]
+        XCTAssert(registerView.waitForExistence(timeout: 5))
     }
     
     func setEmailIdWith(_ name: String) {
@@ -38,8 +48,13 @@ class LoginScreen: BaseAppUITests {
        passwordTextField.typeText(pwd)
     }
     
-    func loginTap() {
+    func loginButtonTap() {
         let login = app.buttons["Login"]
         login.tap()
+    }
+    
+    func registerButtonTap() {
+        let register = app.buttons["registerButton"]
+        register.tap()
     }
 }

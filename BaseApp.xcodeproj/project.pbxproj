@@ -10,6 +10,7 @@
 		5B03C5CE2480A95800B0195E /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03C5CD2480A95800B0195E /* LoginScreen.swift */; };
 		5B03C5CF2480D05900B0195E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B860AC8247338C00058358D /* GoogleService-Info.plist */; };
 		5B28724A247ECD2200C836E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B287248247ECD2200C836E8 /* Localizable.strings */; };
+		5B3BA2CC2482175C001E3217 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BA2CB2482175C001E3217 /* RegisterScreen.swift */; };
 		5B5F039E2478E5020067A256 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03982478E5010067A256 /* ProfileService.swift */; };
 		5B5F039F2478E5020067A256 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03992478E5010067A256 /* ProfileInteractor.swift */; };
 		5B5F03A02478E5020067A256 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F039A2478E5010067A256 /* ProfilePresenter.swift */; };
@@ -93,6 +94,7 @@
 		5B287249247ECD2200C836E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B28724B247ECD7900C836E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B28724C247ECD7A00C836E8 /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B3BA2CB2482175C001E3217 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		5B5F03982478E5010067A256 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		5B5F03992478E5010067A256 /* ProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		5B5F039A2478E5010067A256 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -359,8 +361,9 @@
 		83AA8FD6238381150061782A /* BaseAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5B03C5CD2480A95800B0195E /* LoginScreen.swift */,
 				83AA8FD7238381150061782A /* BaseAppUITests.swift */,
+				5B03C5CD2480A95800B0195E /* LoginScreen.swift */,
+				5B3BA2CB2482175C001E3217 /* RegisterScreen.swift */,
 				83AA8FD9238381150061782A /* Info.plist */,
 			);
 			path = BaseAppUITests;
@@ -740,6 +743,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3BA2CC2482175C001E3217 /* RegisterScreen.swift in Sources */,
 				83AA8FD8238381150061782A /* BaseAppUITests.swift in Sources */,
 				5B03C5CE2480A95800B0195E /* LoginScreen.swift in Sources */,
 			);

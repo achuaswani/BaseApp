@@ -25,24 +25,28 @@ class BaseRootViewController: UIViewController {
             let loginRouter = LoginRouter.createModule()
             self.navigationController?.pushViewController(loginRouter,animated: false)
         } else {
-            FBAuth().checkForUserLoggedIn(handle: &handle) { user in
-                if let user = user, let email = user.email {
-                    let userData = UserDataEntity(userId: user.providerID,
-                                                 emailId: email,
-                                                 photoURL: user.photoURL,
-                                                 userName: user.displayName)
-                    let dashboardRouter = DashboardRouter.createModule(with: userData )
-                    self.navigationController?.pushViewController(dashboardRouter,animated: false)
-                } else {
-                   let loginRouter = LoginRouter.createModule()
-                   self.navigationController?.pushViewController(loginRouter,animated: false)
-                }
-            }
+            checkForUserLoggedIn()
         }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         guard let authHandle = handle else { return }
         FBAuth().removeState(handle: authHandle)
+    }
+    
+    func checkForUserLoggedIn() {
+        FBAuth().checkForUserLoggedIn(handle: &handle) { user in
+            if let user = user, let email = user.email {
+                let userData = UserDataEntity(userId: user.providerID,
+                                             emailId: email,
+                                             photoURL: user.photoURL,
+                                             userName: user.displayName)
+                let dashboardRouter = DashboardRouter.createModule(with: userData )
+                self.navigationController?.pushViewController(dashboardRouter,animated: false)
+            } else {
+               let loginRouter = LoginRouter.createModule()
+               self.navigationController?.pushViewController(loginRouter,animated: false)
+            }
+        }
     }
 }

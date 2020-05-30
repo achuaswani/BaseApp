@@ -104,7 +104,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.setTitle("login.button.register.title".localized(), for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
-        registerButton.accessibilityIdentifier = "signupButton"
+        registerButton.accessibilityIdentifier = "registerButton"
         style.baseStyle.style(buttonLink: registerButton)
         scrollView.addSubview(registerButton)
         
