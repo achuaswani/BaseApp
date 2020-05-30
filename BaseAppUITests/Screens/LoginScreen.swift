@@ -8,9 +8,23 @@
 
 import XCTest
 
-class LoginScreen: XCTest {
-    let app = XCUIApplication()
+class LoginScreen: BaseAppUITests {
+    
+    func test_loginFailureTest() {
+        let errorLabel = app.staticTexts["errorLabel"]
+        loginTap()
+        XCTAssertEqual(errorLabel.label, "All fields are mandatory.")
+    }
+  
+    func test_loginSuccessTest() {
         
+        let dashBoardView = app.otherElements["dashboard"]
+        setEmailIdWith("test@gmail.com")
+        setPasswordWith("abcd1234")
+        loginTap()
+        XCTAssert(dashBoardView.waitForExistence(timeout: 5))
+    }
+    
     func setEmailIdWith(_ name: String) {
        let emailTextField = app.textFields["emailTextField"]
        emailTextField.tap()
@@ -18,25 +32,14 @@ class LoginScreen: XCTest {
     }
     
     func setPasswordWith(_ pwd: String) {
-       let passwordTextField = app.secureTextFields["passwordTextField"]
        app.keyboards.buttons["return"].tap()
+       let passwordTextField = app.secureTextFields["passwordTextField"]
        passwordTextField.tap()
        passwordTextField.typeText(pwd)
     }
     
-    func loginTest() {
+    func loginTap() {
         let login = app.buttons["Login"]
         login.tap()
-    }
-    
-    func getErrorDisplayed() -> String {
-        let errorLabel = app.staticTexts["errorLabel"]
-        return errorLabel.label
-    }
-    
-    func loginSuccessCheck() -> Bool {
-        let dashBoardView = app.otherElements["dashboard"]
-        let dashBoardShown = dashBoardView.waitForExistence(timeout: 5)
-        return dashBoardShown
     }
 }

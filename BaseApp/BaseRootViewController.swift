@@ -21,17 +21,22 @@ class BaseRootViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        FBAuth().checkForUserLoggedIn(handle: &handle) { user in
-            if let user = user, let email = user.email {
-                let userData = UserDataEntity(userId: user.providerID,
-                                             emailId: email,
-                                             photoURL: user.photoURL,
-                                             userName: user.displayName)
-                let dashboardRouter = DashboardRouter.createModule(with: userData )
-                self.navigationController?.pushViewController(dashboardRouter,animated: false)
-            } else {
-               let loginRouter = LoginRouter.createModule()
-               self.navigationController?.pushViewController(loginRouter,animated: false)
+        if ProcessInfo.processInfo.arguments.contains("BaseAppUITest") {
+            let loginRouter = LoginRouter.createModule()
+            self.navigationController?.pushViewController(loginRouter,animated: false)
+        } else {
+            FBAuth().checkForUserLoggedIn(handle: &handle) { user in
+                if let user = user, let email = user.email {
+                    let userData = UserDataEntity(userId: user.providerID,
+                                                 emailId: email,
+                                                 photoURL: user.photoURL,
+                                                 userName: user.displayName)
+                    let dashboardRouter = DashboardRouter.createModule(with: userData )
+                    self.navigationController?.pushViewController(dashboardRouter,animated: false)
+                } else {
+                   let loginRouter = LoginRouter.createModule()
+                   self.navigationController?.pushViewController(loginRouter,animated: false)
+                }
             }
         }
     }
