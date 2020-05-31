@@ -38,11 +38,7 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
 
         //Realm
         //initializeRealm()
-        
-        //Initiate language
-        let locale = LocalizableLanguage(rawValue: Locale.current.languageCode!)
-        LanguageManager().setCurrentLanguage(to: locale ?? .ml)
-
+    
         let login = BaseRootViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [login]

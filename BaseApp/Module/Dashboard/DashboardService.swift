@@ -10,5 +10,5 @@ import Foundation
 
 protocol DashboardServiceType {
 }
-class DashboardService: DashboardServiceType {
+open class DashboardService: DashboardServiceType {
 }

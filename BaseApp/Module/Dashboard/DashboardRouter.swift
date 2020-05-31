@@ -12,7 +12,7 @@ import UIKit
 protocol DashboardRouterToPresenterType: class {
     // TODO: Declare wireframe methods
 }
-class DashboardRouter: DashboardRouterToPresenterType {
+open class DashboardRouter: DashboardRouterToPresenterType {
 
     // MARK: Properties
     typealias Presenter = DashboardPresenter

@@ -21,7 +21,7 @@ protocol LoginPresenterToViewType: class {
     func loginUser(email: String, password: String)
 }
 
-class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType, LoginPresenterToViewType {
+open class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType, LoginPresenterToViewType {
 
     // MARK: Properties
 

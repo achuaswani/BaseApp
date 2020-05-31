@@ -12,6 +12,6 @@ import UIKit
 protocol DashboardStyleType {
      var baseStyle: BaseStyle { get }
 }
-class DashboardStyle: DashboardStyleType {
+open class DashboardStyle: DashboardStyleType {
     var baseStyle = BaseStyle()
 }

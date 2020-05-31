@@ -12,7 +12,7 @@ import UIKit
 protocol DashboardViewType {
     func display(title: String)
 }
-class DashboardView: UIViewController {
+open class DashboardView: UIViewController {
 
     // MARK: Properties
 
@@ -23,12 +23,12 @@ class DashboardView: UIViewController {
 
     // MARK: Lifecycle
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.start()
     }
 
-    override func loadView() {
+    open override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
         view.accessibilityIdentifier = "dashboard"
@@ -47,7 +47,7 @@ class DashboardView: UIViewController {
         setupLayout()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationItem.setHidesBackButton(true, animated: true);
     }

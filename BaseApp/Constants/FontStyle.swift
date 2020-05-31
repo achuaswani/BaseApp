@@ -8,25 +8,25 @@
 
 import UIKit
 
-class FontStyle {
+open class FontStyle {
     init() {}
-    var title: UIFont {
+    public var title: UIFont {
         return UIFont(name: "Gill Sans", size: 24)!
     }
     
-    var header1: UIFont {
+    public var header1: UIFont {
         return UIFont(name: "Gill Sans", size: 14)!
     }
     
-    var buttonTitle: UIFont {
+    public var buttonTitle: UIFont {
         return UIFont(name: "Gill Sans", size: 18)!
     }
     
-    var placeholder: UIFont {
+    public var placeholder: UIFont {
         return UIFont(name: "Gill Sans", size: 14)!
     }
     
-    var errorTitle: UIFont {
+    public var errorTitle: UIFont {
         return UIFont(name: "Gill Sans", size: 12)!
     }
 }

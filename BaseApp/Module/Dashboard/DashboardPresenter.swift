@@ -21,7 +21,7 @@ protocol DashboardPresenterToViewType: class {
     var userData: UserDataEntity { get }
 }
 
-class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenterToRouterType, DashboardPresenterToViewType {
+open class DashboardPresenter: DashboardPresenterToInteractorType, DashboardPresenterToRouterType, DashboardPresenterToViewType {
 
     // MARK: Properties
 

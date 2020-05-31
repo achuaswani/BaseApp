@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol  BaseStyleType{
+public protocol  BaseStyleType {
     var backgroundColor: UIColor { get }
     func style(input: UITextField)
     func style(title: UILabel)
@@ -17,13 +17,13 @@ protocol  BaseStyleType{
     func style(buttonLink: UIButton)
 }
 
-class BaseStyle: BaseStyleType {
-    let font = FontStyle()
-    var backgroundColor: UIColor {
+open class BaseStyle: BaseStyleType {
+    public let font = FontStyle()
+    public var backgroundColor: UIColor {
         return .white
     }
     
-    func style(input: UITextField) {
+    public func style(input: UITextField) {
         input.backgroundColor = .clear
         input.textColor = .black
         input.borderStyle = .roundedRect
@@ -33,35 +33,35 @@ class BaseStyle: BaseStyleType {
         input.font = font.placeholder
     }
     
-    func style(title: UILabel) {
+    public func style(title: UILabel) {
         title.textAlignment = .center
         title.numberOfLines = 1
         title.textColor = .black
         title.font = font.title
     }
     
-    func style(header1: UILabel) {
+    public func style(header1: UILabel) {
         header1.textAlignment = .left
         header1.numberOfLines = 1
         header1.textColor = .black
         header1.font = font.header1
     }
     
-    func style(error: UILabel) {
+    public func style(error: UILabel) {
         error.textAlignment = .left
         error.numberOfLines = 1
         error.textColor = .red
         error.font = font.errorTitle
     }
     
-    func style(button: UIButton) {
+    public func style(button: UIButton) {
         button.backgroundColor = .black
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.titleLabel?.font = font.buttonTitle
     }
     
-    func style(buttonLink: UIButton) {
+    public func style(buttonLink: UIButton) {
         buttonLink.backgroundColor = .clear
         buttonLink.setTitleColor(UIColor.blue, for: .normal)
         buttonLink.titleLabel?.font = font.buttonTitle

@@ -11,14 +11,13 @@
 		5B03C5CF2480D05900B0195E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B860AC8247338C00058358D /* GoogleService-Info.plist */; };
 		5B28724A247ECD2200C836E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B287248247ECD2200C836E8 /* Localizable.strings */; };
 		5B3BA2CC2482175C001E3217 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BA2CB2482175C001E3217 /* RegisterScreen.swift */; };
+		5B3BA2D124832CFC001E3217 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3BA2D024832CFC001E3217 /* Localizable.swift */; };
 		5B5F039E2478E5020067A256 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03982478E5010067A256 /* ProfileService.swift */; };
 		5B5F039F2478E5020067A256 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F03992478E5010067A256 /* ProfileInteractor.swift */; };
 		5B5F03A02478E5020067A256 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F039A2478E5010067A256 /* ProfilePresenter.swift */; };
 		5B5F03A12478E5020067A256 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F039B2478E5010067A256 /* ProfileRouter.swift */; };
 		5B5F03A22478E5020067A256 /* ProfileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F039C2478E5020067A256 /* ProfileStyle.swift */; };
 		5B5F03A32478E5020067A256 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5F039D2478E5020067A256 /* ProfileView.swift */; };
-		5B72FF382464727B002FF7F1 /* LocalizableLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */; };
-		5B72FF3A24647553002FF7F1 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF3924647553002FF7F1 /* LanguageManager.swift */; };
 		5B72FF3E2468A6BC002FF7F1 /* FBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */; };
 		5B72FF65246A2AAD002FF7F1 /* UserDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF64246A2AAD002FF7F1 /* UserDataEntity.swift */; };
 		5B72FF67246B4EA5002FF7F1 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */; };
@@ -95,14 +94,13 @@
 		5B28724B247ECD7900C836E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B28724C247ECD7A00C836E8 /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B3BA2CB2482175C001E3217 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		5B3BA2D024832CFC001E3217 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		5B5F03982478E5010067A256 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		5B5F03992478E5010067A256 /* ProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		5B5F039A2478E5010067A256 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		5B5F039B2478E5010067A256 /* ProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		5B5F039C2478E5020067A256 /* ProfileStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStyle.swift; sourceTree = "<group>"; };
 		5B5F039D2478E5020067A256 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableLanguage.swift; sourceTree = "<group>"; };
-		5B72FF3924647553002FF7F1 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuth.swift; sourceTree = "<group>"; };
 		5B72FF64246A2AAD002FF7F1 /* UserDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataEntity.swift; sourceTree = "<group>"; };
 		5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
@@ -215,9 +213,8 @@
 		5B72FF3B2468A65D002FF7F1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				5B3BA2D024832CFC001E3217 /* Localizable.swift */,
 				5B72FF3D2468A6BC002FF7F1 /* FBAuth.swift */,
-				5B72FF372464727B002FF7F1 /* LocalizableLanguage.swift */,
-				5B72FF3924647553002FF7F1 /* LanguageManager.swift */,
 				5B72FF66246B4EA5002FF7F1 /* String+Validation.swift */,
 				5B860AC62471D6780058358D /* AuthenticationError.swift */,
 			);
@@ -682,7 +679,6 @@
 			files = (
 				5BBCF222241C8F3A002BD0C0 /* RegisterView.swift in Sources */,
 				5B5F039E2478E5020067A256 /* ProfileService.swift in Sources */,
-				5B72FF3A24647553002FF7F1 /* LanguageManager.swift in Sources */,
 				8390CCE223E0C46400E0DBBD /* LoginPresenter.swift in Sources */,
 				8390CCDC23E0C46400E0DBBD /* LoginView.swift in Sources */,
 				83AA8FBA238381130061782A /* BaseRootViewController.swift in Sources */,
@@ -726,7 +722,7 @@
 				5B860ADE24734F110058358D /* AboutView.swift in Sources */,
 				83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */,
 				5BBCF228241C8F3A002BD0C0 /* RegisterPresenter.swift in Sources */,
-				5B72FF382464727B002FF7F1 /* LocalizableLanguage.swift in Sources */,
+				5B3BA2D124832CFC001E3217 /* Localizable.swift in Sources */,
 				5B860ABF246F5C110058358D /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

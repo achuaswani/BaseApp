@@ -12,7 +12,7 @@ import UIKit
 protocol DashboardInteractorToPresenterType {
      
 }
-class DashboardInteractor: DashboardInteractorToPresenterType {
+open class DashboardInteractor: DashboardInteractorToPresenterType {
     var presenter: DashboardPresenter?
     var service: DashboardService?
 }
