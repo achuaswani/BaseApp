@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserDataEntity {
+public class UserDataEntity {
     let userId: String
     let emailId: String
     var photoURL: URL?

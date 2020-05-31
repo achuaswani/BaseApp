@@ -13,7 +13,7 @@ protocol LoginViewType {
     func routeToDashboard(with userData: UserDataEntity)
     func display(errorMessage: String)
 }
-class LoginView: UIViewController, UITextFieldDelegate {
+open class LoginView: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
 
@@ -40,7 +40,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
 
     // MARK: Lifecycle
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.start()
         self.emailTextField.delegate = self
@@ -49,11 +49,11 @@ class LoginView: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    override func loadView() {
+    open override func loadView() {
         view = UIView(frame: .zero)
         view.backgroundColor = .white
         view.addSubview(scrollView)
@@ -179,7 +179,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard isFieldsAreEmpty else {
             dimissKeyboard()
             return true
@@ -191,13 +191,15 @@ class LoginView: UIViewController, UITextFieldDelegate {
     private func dimissKeyboard(){
         self.view.endEditing(true)
     }
-}
-
-extension LoginView: LoginViewType {
-    func routeToDashboard(with userData: UserDataEntity) {
+    
+    open func routeToDashboard(with userData: UserDataEntity) {
         let dashboardRouter = DashboardRouter.createModule(with: userData)
         self.navigationController?.pushViewController(dashboardRouter,animated: true)
     }
+}
+
+extension LoginView: LoginViewType {
+    
     
     func display(errorMessage: String) {
         errorLabel.text = errorMessage
