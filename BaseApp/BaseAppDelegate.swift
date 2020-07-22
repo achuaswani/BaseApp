@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseCrashlytics
 
 @UIApplicationMain
 open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
@@ -81,7 +82,30 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
     public func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+extension UIWindow {
+
+    override open var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    override open func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        #if !Production
+        if motion == .motionShake {
+            let ac = UIAlertController(title: "Tools", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(
+                UIAlertAction(
+                    title:"Mock Crash",
+                    style: .default,
+                    handler: { _ in
+                        Crashlytics.crashlytics().setUserID("user_id")
+                        fatalError()
+                    }
+                )
+            )
+            rootViewController?.present(ac, animated: true)
+        }
+        #endif
+    }
+}

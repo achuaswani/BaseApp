@@ -4,8 +4,7 @@
   use_frameworks!
 def all_pods
   # Pods for Crash reporting
-   pod 'Fabric'
-   pod 'Crashlytics'
+   pod 'Firebase/Crashlytics'
    # Pod for Google Analytics
    pod 'Firebase/Core'
    pod 'Firebase/Firestore'
