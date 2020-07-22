@@ -85,11 +85,6 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension UIWindow {
-
-    override open var canBecomeFirstResponder: Bool {
-        return true
-    }
-
     override open func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         #if !Production
         if motion == .motionShake {
