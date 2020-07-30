@@ -8,32 +8,29 @@
 
 import Foundation
 
-protocol LoginPresenterToInteractorType: class {
+public protocol LoginPresenterToInteractorType: class {
     // TODO: Declare presentation methods
 }
 
-protocol LoginPresenterToRouterType: class {
+public protocol LoginPresenterToRouterType: class {
     // TODO: Declare presentation methods
 }
 
-protocol LoginPresenterToViewType: class {
-    func start()
+public protocol LoginPresenterToViewType: class {
     func loginUser(email: String, password: String)
 }
 
-open class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType, LoginPresenterToViewType {
+public class LoginPresenter: LoginPresenterToInteractorType, LoginPresenterToRouterType, LoginPresenterToViewType {
 
     // MARK: Properties
 
-    weak var view: LoginView?
-    var router: LoginRouter?
-    var interactor: LoginInteractor?
+    public var view: LoginView?
+    public var router: LoginRouter?
+    public var interactor: LoginInteractor?
     
-    func start(){
-
-    }
+    public init() {}
     
-    func loginUser(email: String, password: String) {
+    public func loginUser(email: String, password: String) {
         guard email.isValidEmail else {
             view?.display(errorMessage: "login.label.email.validation.error.message".localized())
             return

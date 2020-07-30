@@ -10,17 +10,17 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 
-class BaseRootViewController: UIViewController {
+open class BaseRootViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     
-    override func loadView() {
+    open override func loadView() {
 
         view = UIView(frame: .zero)
         view.accessibilityIdentifier = "RootViewController"
         view.backgroundColor = .white
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         if ProcessInfo.processInfo.arguments.contains("BaseAppUITest") {
             let loginRouter = LoginRouter.createModule()
             self.navigationController?.pushViewController(loginRouter,animated: false)
@@ -29,7 +29,7 @@ class BaseRootViewController: UIViewController {
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         guard let authHandle = handle else { return }
         FBAuth().removeState(handle: authHandle)
     }
@@ -41,12 +41,21 @@ class BaseRootViewController: UIViewController {
                                              emailId: email,
                                              photoURL: user.photoURL,
                                              userName: user.displayName)
-                let dashboardRouter = DashboardRouter.createModule(with: userData )
-                self.navigationController?.pushViewController(dashboardRouter,animated: false)
+                self.routeToDashboard(userData: userData)
+                
             } else {
-               let loginRouter = LoginRouter.createModule()
-               self.navigationController?.pushViewController(loginRouter,animated: false)
+                self.routeToLogin()
             }
         }
+    }
+    
+    open func routeToDashboard(userData: UserDataEntity) {
+        let dashboardRouter = DashboardRouter.createModule(with: userData)
+        self.navigationController?.pushViewController(dashboardRouter,animated: false)
+    }
+    
+    open func routeToLogin() {
+        let loginRouter = LoginRouter.createModule()
+        self.navigationController?.pushViewController(loginRouter,animated: false)
     }
 }

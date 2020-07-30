@@ -19,7 +19,7 @@ public protocol  BaseStyleType {
 
 open class BaseStyle: BaseStyleType {
     public let font = FontStyle()
-    public var backgroundColor: UIColor {
+    open var backgroundColor: UIColor {
         return .white
     }
     

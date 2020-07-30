@@ -10,8 +10,7 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.0"
   spec.source       = { :git => "https://github.com/achuaswani/BaseApp.git", :tag => spec.version }
   spec.static_framework = true
-  spec.dependency 'Fabric'
-  spec.dependency  'Crashlytics'
+  spec.dependency  'Firebase/Crashlytics'
   # Pod for Google Analytics
   spec.dependency 'Firebase'
   spec.dependency 'Firebase/Core'
@@ -20,6 +19,7 @@ Pod::Spec.new do |spec|
   spec.dependency  'Firebase/Auth'
   spec.dependency  'SwiftyJSON'
   spec.dependency  'Alamofire'
+  spec.dependency  'SwiftLint'
   spec.source_files  = "BaseApp", "BaseApp/**/*.{swift}"
   spec.resources = "BaseApp/**/*.{xcassets}", "BaseApp/**/*.{Strings}"
 end

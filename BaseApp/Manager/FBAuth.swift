@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseCore
 import FirebaseAuth
+import FirebaseCrashlytics
 
 class FBAuth {
     let firebaseAuth = Auth.auth()
@@ -18,6 +19,7 @@ class FBAuth {
                 closure(nil)
                 return
             }
+            self.setUserIdToCrashlytics(user.uid)
             closure(user)
         }
     }
@@ -29,6 +31,7 @@ class FBAuth {
     func registerUser(email: String, password: String, closure: @escaping (User?, Error?) -> ()){
         firebaseAuth.createUser(withEmail: email, password: password) { authResult, error in
             if let result = authResult {
+                self.setUserIdToCrashlytics(result.user.uid)
                 closure(result.user, nil)
             } else if let error = error {
                 closure(nil, error)
@@ -41,6 +44,7 @@ class FBAuth {
     func loginUser(email: String, password: String, closure: @escaping (User?, Error?) -> ()) {
         firebaseAuth.signIn(withEmail: email, password: password) { authResult, error in
             if let result = authResult {
+                self.setUserIdToCrashlytics(result.user.uid)
                 closure(result.user, nil)
             } else if error != nil {
                 closure(nil, error)
@@ -101,6 +105,10 @@ class FBAuth {
             }
             closure(error)
         })
+    }
+    
+    func setUserIdToCrashlytics(_ userId: String) {
+        Crashlytics.crashlytics().setUserID(userId)
     }
     
 }

@@ -11,7 +11,8 @@ import Foundation
 protocol LoginServiceType {
     func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->())
 }
-class LoginService: LoginServiceType {
+public class LoginService: LoginServiceType {
+    public init() {}
     func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->()) {
         FBAuth().loginUser(email: email,password: password) { user, error in
             guard let user = user else {

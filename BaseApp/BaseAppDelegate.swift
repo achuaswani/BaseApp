@@ -15,6 +15,7 @@ import FirebaseCrashlytics
 open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
 
     public var window: UIWindow?
+    public let navigationController = UINavigationController()
 
 //    func initializeRealm(){
 //        let realm = try! Realm()
@@ -40,12 +41,7 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
         //Realm
         //initializeRealm()
     
-        let login = BaseRootViewController()
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [login]
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = navigationController
-        window!.makeKeyAndVisible() // or you can use self.window?.isHidden = true
+        routeToRootViewController()
         
         /*
          //find all font from Xcode
@@ -59,6 +55,14 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate {
         }*/
 
         return true
+    }
+    
+    open func routeToRootViewController() {
+        let login = BaseRootViewController()
+        navigationController.viewControllers = [login]
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
     }
 
     public func applicationWillResignActive(_ application: UIApplication) {
@@ -99,8 +103,16 @@ extension UIWindow {
                     }
                 )
             )
-            rootViewController?.present(ac, animated: true)
+            rootViewController?.present(ac, animated: true, completion: {
+                ac.view.superview?.isUserInteractionEnabled = true
+                ac.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
+            })
         }
         #endif
+    }
+    
+    @objc private func dismissOnTapOutside()
+    {
+       rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

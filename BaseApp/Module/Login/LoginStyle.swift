@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-protocol LoginStyleType {
+public protocol LoginStyleType {
     var baseStyle: BaseStyle { get }
 }
-class LoginStyle: LoginStyleType {
-    var baseStyle = BaseStyle()
+public class LoginStyle: LoginStyleType {
+    public var baseStyle = BaseStyle()
+    public init() {}
 }

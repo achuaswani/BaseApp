@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-protocol LoginInteractorToPresenterType {
+public protocol LoginInteractorToPresenterType {
     func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->())
 }
-class LoginInteractor: LoginInteractorToPresenterType {
-    var presenter: LoginPresenter?
-    var service: LoginService?
-    
-    func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->()) {
+public class LoginInteractor: LoginInteractorToPresenterType {
+    public var presenter: LoginPresenter?
+    public var service: LoginService?
+    public init() {}
+    public func loginUser(email: String, password: String, closure: @escaping (UserDataEntity?, Error?) ->()) {
         service?.loginUser(email: email, password: password, closure: closure)
     }
 

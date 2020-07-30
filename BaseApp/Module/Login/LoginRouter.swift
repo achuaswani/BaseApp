@@ -12,7 +12,7 @@ import UIKit
 protocol LoginRouterToPresenterType: class {
     // TODO: Declare wireframe methods
 }
-class LoginRouter: LoginRouterToPresenterType {
+open class LoginRouter: LoginRouterToPresenterType {
 
     // MARK: Properties
     typealias Presenter = LoginPresenter

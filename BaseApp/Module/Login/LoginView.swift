@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol LoginViewType {
+public protocol LoginViewType {
     func routeToDashboard(with userData: UserDataEntity)
     func display(errorMessage: String)
 }
@@ -17,8 +17,8 @@ open class LoginView: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
 
-    var presenter: LoginPresenterToViewType?
-    var style: LoginStyleType!
+    public var presenter: LoginPresenterToViewType?
+    public var style: LoginStyleType!
     lazy var headerImageView = UIImageView(frame: .zero)
     lazy var headerLabel: UILabel = UILabel(frame: .zero)
     lazy var emailTextField: UITextField = UITextField(frame: .zero)
@@ -37,12 +37,13 @@ open class LoginView: UIViewController, UITextFieldDelegate {
         presenter?.loginUser(email: email, password: password)
         return false
     }
-
+    
+    //public init() { super.init() }
+    
     // MARK: Lifecycle
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter?.start()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -201,7 +202,7 @@ open class LoginView: UIViewController, UITextFieldDelegate {
 extension LoginView: LoginViewType {
     
     
-    func display(errorMessage: String) {
+    public func display(errorMessage: String) {
         errorLabel.text = errorMessage
     }
 }

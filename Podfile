@@ -12,6 +12,7 @@ def all_pods
    pod 'Firebase/Auth'
    pod 'SwiftyJSON'
    pod 'Alamofire'
+   pod 'SwiftLint'
 end
 target 'BaseApp' do
   # Pods for BaseApp
