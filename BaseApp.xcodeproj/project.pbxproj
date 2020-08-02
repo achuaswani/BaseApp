@@ -42,6 +42,7 @@
 		5BBCF225241C8F3A002BD0C0 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21E241C8F3A002BD0C0 /* RegisterService.swift */; };
 		5BBCF226241C8F3A002BD0C0 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF21F241C8F3A002BD0C0 /* RegisterInteractor.swift */; };
 		5BBCF228241C8F3A002BD0C0 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCF221241C8F3A002BD0C0 /* RegisterPresenter.swift */; };
+		5BEECBF824D72FBF00B3A1E6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEECBF724D72FBF00B3A1E6 /* WebViewController.swift */; };
 		83074A9F23FDE8C30055EFE9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9823FDE8C30055EFE9 /* DashboardView.swift */; };
 		83074AA023FDE8C30055EFE9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9923FDE8C30055EFE9 /* DashboardRouter.swift */; };
 		83074AA123FDE8C30055EFE9 /* DashboardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83074A9A23FDE8C30055EFE9 /* DashboardStyle.swift */; };
@@ -126,6 +127,7 @@
 		5BBCF21E241C8F3A002BD0C0 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		5BBCF21F241C8F3A002BD0C0 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		5BBCF221241C8F3A002BD0C0 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		5BEECBF724D72FBF00B3A1E6 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		74C7EC81218ECDAF5BC95E8C /* Pods-BaseAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseAppTests.release.xcconfig"; path = "Target Support Files/Pods-BaseAppTests/Pods-BaseAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		75141B969D840028C273E61F /* Pods-BaseAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseAppUITests.release.xcconfig"; path = "Target Support Files/Pods-BaseAppUITests/Pods-BaseAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7647DD500941D40BE09EF856 /* Pods_BaseAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +283,14 @@
 			path = Signup;
 			sourceTree = "<group>";
 		};
+		5BEECBF624D72F9B00B3A1E6 /* Tricks */ = {
+			isa = PBXGroup;
+			children = (
+				5BEECBF724D72FBF00B3A1E6 /* WebViewController.swift */,
+			);
+			path = Tricks;
+			sourceTree = "<group>";
+		};
 		83074A9723FDE8AD0055EFE9 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +342,7 @@
 		83AA8FB6238381130061782A /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				5BEECBF624D72F9B00B3A1E6 /* Tricks */,
 				5B72FF63246A2A90002FF7F1 /* Entity */,
 				5B72FF3C2468A66E002FF7F1 /* Module */,
 				5B72FF3B2468A65D002FF7F1 /* Manager */,
@@ -470,7 +481,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = RAS;
 				TargetAttributes = {
 					83AA8FB3238381130061782A = {
@@ -710,6 +721,7 @@
 				8390CCDE23E0C46400E0DBBD /* LoginStyle.swift in Sources */,
 				8390CCDD23E0C46400E0DBBD /* LoginRouter.swift in Sources */,
 				5B860AC72471D6780058358D /* AuthenticationError.swift in Sources */,
+				5BEECBF824D72FBF00B3A1E6 /* WebViewController.swift in Sources */,
 				5B72FF6B246B5DBD002FF7F1 /* BaseStyle.swift in Sources */,
 				83074AA323FDE8C30055EFE9 /* DashboardInteractor.swift in Sources */,
 				5BBCF226241C8F3A002BD0C0 /* RegisterInteractor.swift in Sources */,
@@ -812,6 +824,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -837,7 +850,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -875,6 +888,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -894,7 +908,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

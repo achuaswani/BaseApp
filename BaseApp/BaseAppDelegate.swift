@@ -93,16 +93,16 @@ extension UIWindow {
         #if !Production
         if motion == .motionShake {
             let ac = UIAlertController(title: "Tools", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(
-                UIAlertAction(
-                    title:"Mock Crash",
-                    style: .default,
-                    handler: { _ in
-                        Crashlytics.crashlytics().setUserID("user_id")
-                        fatalError()
-                    }
-                )
-            )
+            let mockCrashAction = UIAlertAction(title:"Mock Crash", style: .default, handler: { _ in
+                Crashlytics.crashlytics().setUserID("user_id")
+                fatalError()
+            })
+            let openWebKit = UIAlertAction(title: "Web Kit Test", style: .default, handler: { _ in
+                self.rootViewController?.present(WebViewController(), animated: true)
+            } )
+            
+            ac.addAction(mockCrashAction)
+            ac.addAction(openWebKit)
             rootViewController?.present(ac, animated: true, completion: {
                 ac.view.superview?.isUserInteractionEnabled = true
                 ac.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
